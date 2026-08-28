@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ReportDocument v1",
+  "type": "object",
+  "required": ["schema_version", "report_id", "report_version", "frozen_at", "project", "field_catalog", "sections", "defects"],
+  "properties": {
+    "schema_version": {"const": "report-document/v1"},
+    "report_id": {"type": "string"},
+    "report_version": {"type": "string"},
+    "frozen_at": {"type": "string"},
+    "project": {"type": "object"},
+    "field_catalog": {"type": "array"},
+    "sections": {"type": "array"},
+    "defects": {"type": "array"}
+  }
+}
+

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FacadeFixer 报告生成工作台</title>
+  <link rel="stylesheet" href="generator.css">
+</head>
+<body>
+  <header class="topbar"><div class="brand"><strong>FacadeFixer</strong><span>专业检测报告生成工作台</span></div><nav><a href="building_76_reference.html">示例报告</a><a href="preview.html">数据预览</a></nav></header>
+  <main class="shell">
+    <section class="hero"><p class="eyebrow">REPORT DOCUMENT V1</p><h1>从冻结检测资料生成正式报告</h1><p>提交项目数据与已批准证据，系统先完成正式版预检，再生成与 Building_76 示例相同章节结构的网页报告预览。</p></section>
+    <section class="flow" aria-label="生成流程"><div class="active"><b>1</b><span>提交材料</span></div><div><b>2</b><span>规则校验</span></div><div><b>3</b><span>生成预览</span></div><div><b>4</b><span>导出审批</span></div></section>
+    <div class="layout">
+      <section class="panel input-panel"><div class="panel-heading"><div><p class="eyebrow">INPUT PACKAGE</p><h2>提交报告材料</h2></div><button id="load-sample" class="secondary" type="button">载入 Building_76 示例</button></div>
+        <div class="requirement"><b>正式版本最小材料</b><span>项目与期次 · 冻结专家结论 · 批准脱敏证据 · 责任信息</span></div>
+        <label class="upload required"><span class="file-icon">01</span><span><b>ReportDocument JSON</b><small>必填 · schema_version 必须为 report-document/v1</small></span><input id="report-json" type="file" accept="application/json"></label>
+        <label class="upload required"><span class="file-icon">02</span><span><b>批准脱敏证据</b><small>必填 · 可选择图片、PDF 或 ZIP；仅列入批准材料</small></span><input id="evidence-files" type="file" accept="image/*,application/pdf,.zip" multiple></label>
+        <label class="upload"><span class="file-icon">03</span><span><b>项目依据与附件</b><small>可选 · 标准、图纸、仪器校准或委托资料</small></span><input id="attachment-files" type="file" multiple></label>
+        <div id="file-list" class="file-list" aria-live="polite">尚未选择文件。</div>
+        <details><summary>查看字段和状态规则</summary><ul><li>报告仅接受 <code>frozen</code> 的专家结论；草稿结论不能进入正式版。</li><li>图片证据须标记 <code>approved_redaction=true</code>。</li><li>模型估算、未采集、不可达、待确认不会计入正式量测统计。</li></ul></details>
+      </section>
+      <aside class="panel check-panel"><p class="eyebrow">FORMAL RELEASE CHECK</p><h2>正式版预检</h2><div id="check-list" class="check-list"><p class="empty">等待提交 ReportDocument。</p></div><div class="summary"><span>报告状态</span><b id="readiness">待提交</b></div><button id="generate" class="primary" type="button" disabled>生成网页报告预览</button><p class="help">生成网页预览不会签署或发布正式报告。DOCX/PDF 转换和签署由后续流程完成。</p></aside>
+    </div>
+    <section id="result" class="result" hidden><div><p class="eyebrow">PREVIEW READY</p><h2>网页报告已生成</h2><p id="result-copy"></p></div><div class="result-actions"><a id="open-report" class="primary link-button" href="preview.html">打开数据报告</a><a class="secondary link-button" href="building_76_reference.html">查看示例版式</a></div></section>
+    <section class="chapters"><p class="eyebrow">OUTPUT STRUCTURE</p><h2>生成报告的章节</h2><div class="chapter-grid"><div><b>01</b><span>封面、签署页与企业声明</span></div><div><b>02</b><span>工程概况、依据、方法与仪器</span></div><div><b>03</b><span>现场勘验、楼栋/立面索引与缺陷汇总</span></div><div><b>04</b><span>逐缺陷证据、结论、建议与附件区</span></div></div></section>
+  </main>
+  <script src="generator.js"></script>
+</body>
+</html>
+
