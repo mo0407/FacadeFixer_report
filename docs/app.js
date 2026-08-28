@@ -15,7 +15,9 @@
     if (!images.length) return '<div class="photo-box"><div class="photo-placeholder">未提供可打印的证据图片</div><div class="caption">请返回工作台选择图片文件。</div></div>';
     return [0, 1, 2, 3].map(function (index) {
       var uri = images[index % images.length];
-      return '<div class="photo-box"><img src="' + esc(uri) + '" alt="缺陷' + number + '证据图 ' + (index + 1) + '"><div class="caption">图 ' + number + '-' + String.fromCharCode(97 + index) + ' — ' + captions[index] + '</div></div>';
+      var fallback = images[1] || images[0];
+      var fallbackAttr = index === 0 && fallback ? ' onerror="this.onerror=null;this.src=\'' + esc(fallback) + '\';"' : '';
+      return '<div class="photo-box"><img src="' + esc(uri) + '"' + fallbackAttr + ' alt="缺陷' + number + '证据图 ' + (index + 1) + '"><div class="caption">图 ' + number + '-' + String.fromCharCode(97 + index) + ' — ' + captions[index] + '</div></div>';
     }).join("");
   }
   function imageName(defect) {
