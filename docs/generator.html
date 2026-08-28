@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FacadeFixer 报告生成工作台</title>
+  <link rel="stylesheet" href="generator.css">
+</head>
+<body>
+  <header class="topbar"><nav><a href="building_76_reference.html">示例报告</a></nav></header>
+  <main class="shell">
+    <section class="hero"><p class="eyebrow">REPORT DOCUMENT V1</p><h1>从冻结检测资料生成正式报告</h1><p>提交项目数据与已批准证据，系统先完成正式版预检，再生成与 Building_76 示例相同章节结构的网页报告预览。</p></section>
+    <div class="layout">
+      <section class="panel input-panel"><div class="panel-heading"><div><p class="eyebrow">INPUT PACKAGE</p><h2>提交报告材料</h2></div><button id="load-sample" class="secondary" type="button">载入 Building_76 示例</button></div>
+        <div class="requirement"><b>正式版本最小材料</b><span>项目与期次 · 冻结专家结论 · 批准脱敏证据 · 责任信息</span></div>
+        <label class="upload required"><span class="file-icon">01</span><span><b>缺陷元数据文件夹（_meta）</b><small>必填 · 选择包含 *_defects.json 的文件夹</small></span><input id="meta-files" type="file" accept="application/json" webkitdirectory directory multiple></label>
+        <label class="upload required"><span class="file-icon">02</span><span><b>原始缺陷图片文件夹（defects）</b><small>必填 · 与 JSON 的 crop_name 对应</small></span><input id="evidence-files" type="file" accept="image/*" webkitdirectory directory multiple></label>
+        <label class="upload required"><span class="file-icon">03</span><span><b>缺陷掩码文件夹（defect_masks）</b><small>必填 · 包含 *_mask.png 与 *_vis.jpg</small></span><input id="mask-files" type="file" accept="image/*" webkitdirectory directory multiple></label>
+        <label class="upload required"><span class="file-icon">04</span><span><b>缺陷位置图文件夹（single_defect_maps）</b><small>必填 · 与 JSON 的 map_name 对应</small></span><input id="map-files" type="file" accept="image/*" webkitdirectory directory multiple></label>
+        <label class="upload"><span class="file-icon">05</span><span><b>ReportDocument JSON / 项目附件</b><small>可选 · 已有版本化报告数据或标准、图纸、校准资料</small></span><input id="report-json" type="file" accept="application/json"></label><input id="attachment-files" type="file" multiple hidden>
+        <div id="file-list" class="file-list" aria-live="polite">尚未选择文件。</div>
+        <details><summary>查看字段和状态规则</summary><ul><li>报告仅接受 <code>frozen</code> 的专家结论；草稿结论不能进入正式版。</li><li>图片证据须标记 <code>approved_redaction=true</code>。</li><li>模型估算、未采集、不可达、待确认不会计入正式量测统计。</li><li>点击生成前，请在本机启动 <code>python ai_service.py</code>；网页只向本机服务发送缺陷类别、识别描述和量化尺寸，不会上传图片、坐标或拍摄时间。</li></ul></details>
+      </section>
+      <aside class="panel check-panel"><p class="eyebrow">FORMAL RELEASE CHECK</p><h2>正式版预检</h2><div id="check-list" class="check-list"><p class="empty">等待提交 ReportDocument。</p></div><div class="summary"><span>报告状态</span><b id="readiness">待提交</b></div><button id="generate" class="primary" type="button" disabled>生成网页报告预览</button><p id="generation-progress" class="help" hidden aria-live="polite"></p><p class="help">生成网页预览不会签署或发布正式报告。DOCX/PDF 转换和签署由后续流程完成。</p></aside>
+    </div>
+    <section id="result" class="result" hidden><div><p class="eyebrow">PREVIEW READY</p><h2>网页报告已生成</h2><p id="result-copy"></p></div><div class="result-actions"><a id="open-report" class="primary link-button" href="preview.html?v=layout-2">打开数据报告</a><a class="secondary link-button" href="building_76_reference.html">查看示例版式</a></div></section>
+    <section class="chapters"><p class="eyebrow">OUTPUT STRUCTURE</p><h2>生成报告的章节</h2><div class="chapter-grid"><div><b>01</b><span>封面、签署页与企业声明</span></div><div><b>02</b><span>工程概况、依据、方法与仪器</span></div><div><b>03</b><span>现场勘验、楼栋/立面索引与缺陷汇总</span></div><div><b>04</b><span>逐缺陷证据、结论、建议与附件区</span></div></div></section>
+  </main>
+  <script id="sample-data" type="application/json">
++{
+  "schema_version": "report-document/v1",
+  "report_id": "report-demo-76",
+  "report_version": "draft-web-1",
+  "frozen_at": "2026-08-28T08:00:00Z",
+  "project": {
+    "project_id": "building-76",
+    "name": "Building_76 外墙检测鉴定",
+    "period": "2026-Q3",
+    "source_version": "project/v1",
+    "location": "浙江省杭州市（示例）",
+    "client": "委托单位待补充",
+    "overview": "本网页报告为冻结检测数据的专业预览版。工程信息、方法与责任信息须由项目负责人确认后形成正式版本。",
+    "method": "采用无人机航拍目视检查，结合经批准的缺陷证据，对外墙可见部位进行记录与复核。",
+    "standards": ["JGJ/T 277-2012", "JGJ 376-2015", "GB 50210-2018"],
+    "instruments": [
+      {"name": "无人机航拍平台", "model": "待登记", "asset_id": "待补充"},
+      {"name": "激光测距仪", "model": "待登记", "asset_id": "待补充"}
+    ],
+    "responsibility": {"inspector": "待补充", "author": "待补充", "reviewer": "待补充", "approver": "待补充"}
+  },
+  "field_catalog": [],
+  "sections": [],
+  "defects": [
+    {
+      "defect_id": "D-001",
+      "building_id": "Building_76",
+      "facade_id": "南立面",
+      "category_id": "concrete_spalling",
+      "severity": "serious",
+      "expert_conclusion": {"status": "frozen", "frozen_at": "2026-08-28T08:00:00Z", "source_version": "conclusion/v1", "text": "建议尽快安排现场复核并采取防坠落措施。"},
+      "evidence": [
+        {"evidence_id": "E-001", "state": "measured", "source": "inspection", "period": "2026-Q3", "version": "evidence/v1", "kind": "image", "approved_redaction": true, "caption": "已批准脱敏证据；正式量测/人工确认。", "image_uri": ""}
+      ]
+    },
+    {
+      "defect_id": "D-002",
+      "building_id": "Building_76",
+      "facade_id": "东立面",
+      "category_id": "concrete_crack",
+      "severity": "general",
+      "expert_conclusion": {"status": "frozen", "frozen_at": "2026-08-28T08:00:00Z", "source_version": "conclusion/v1", "text": "建议在维修前补充裂缝宽度和延伸范围复核。"},
+      "evidence": [
+        {"evidence_id": "E-002", "state": "model_estimate", "source": "model", "period": "2026-Q3", "version": "model/v2", "kind": "image", "approved_redaction": true, "caption": "模型估算，未作为正式量测。", "image_uri": ""}
+      ]
+    },
+    {
+      "defect_id": "D-003",
+      "building_id": "Building_76",
+      "facade_id": "北立面",
+      "category_id": "rust_stain",
+      "severity": "minor",
+      "expert_conclusion": {"status": "frozen", "frozen_at": "2026-08-28T08:00:00Z", "source_version": "conclusion/v1", "text": "建议结合渗水路径进行后续排查。"},
+      "evidence": [
+        {"evidence_id": "E-003", "state": "inaccessible", "reason": "高处遮挡，当前航线不可达", "source": "inspection", "period": "2026-Q3", "version": "evidence/v1", "kind": "note", "approved_redaction": true, "caption": "不可达区域，不纳入实测统计。"}
+      ]
+    }
+  ]
+}
+  </script>
+  <script src="generator.js"></script>
+</body>
+</html>
+
