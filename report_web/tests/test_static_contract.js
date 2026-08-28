@@ -17,6 +17,7 @@ if (generator.includes("data-phase=") || generator.includes("flow-help")) throw 
 if (!app.includes("localStorage.getItem") || !app.includes("window.name")) throw new Error("generated-report cross-page handoff is incomplete");
 if (data.schema_version !== "report-document/v1") throw new Error("example must use ReportDocument v1");
 if (!app.includes("sign-page") || !app.includes("statement") || !app.includes("detail-title")) throw new Error("reference report layout is incomplete");
+if (!app.includes("原始图像") || !app.includes("GPS纬度") || !app.includes("行人风险") || !app.includes("图 ' + number + '-")) throw new Error("defect detail table must match the reference layout");
 if (!app.includes("window.print")) throw new Error("A4 print action missing");
 const reference = fs.readFileSync(path.join(root, "building_76_reference.html"), "utf8");
 if (!reference.includes('id="print-button"') || !reference.includes("window.print")) throw new Error("reference report print action missing");

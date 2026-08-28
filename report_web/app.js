@@ -6,15 +6,19 @@
   function esc(value) { return String(value == null ? "待补充" : value).replace(/[&<>'"]/g, function (char) { return {"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;","\"":"&quot;"}[char]; }); }
   function value(item, fallback) { return item || fallback || "待补充"; }
   function sourceText(data) { return "本报告基于冻结的 ReportDocument v1 数据生成。模型估算、未采集、不可达和待确认信息均按原状态展示，不作为正式量测结果。"; }
-  function photos(defect) {
+  function photos(defect, number) {
     var evidence = defect.evidence || [];
     var images = (defect.reference_images || []).concat(evidence.map(function (item) { return item.image_uri; })).filter(function (uri, index, all) { return uri && all.indexOf(uri) === index; });
+    var captions = ["缺陷在大图中的位置", "缺陷局部特写", "缺陷掩码（二值分割）", "缺陷掩码与原图叠加"];
     if (!images.length) return '<div class="photo-box"><div class="photo-placeholder">未提供可打印的证据图片</div><div class="caption">请返回工作台选择图片文件。</div></div>';
     return [0, 1, 2, 3].map(function (index) {
       var uri = images[index % images.length];
-      var source = evidence[index] || evidence[0] || {};
-      return '<div class="photo-box"><img src="' + esc(uri) + '" alt="缺陷证据图 ' + (index + 1) + '"><div class="caption">图 ' + (index + 1) + '：' + esc(source.caption || source.state || "已嵌入证据图片") + '</div></div>';
+      return '<div class="photo-box"><img src="' + esc(uri) + '" alt="缺陷' + number + '证据图 ' + (index + 1) + '"><div class="caption">图 ' + number + '-' + String.fromCharCode(97 + index) + ' — ' + captions[index] + '</div></div>';
     }).join("");
+  }
+  function imageName(defect) {
+    var uri = ((defect.reference_images || [])[1] || ((defect.evidence || [])[0] || {}).image_uri || "");
+    return uri ? decodeURIComponent(uri.split("/").pop()) : "待补充";
   }
   function summaryRows(defects) {
     return defects.map(function (defect, index) {
@@ -26,9 +30,15 @@
     return defects.map(function (defect, index) {
       var rule = severity[defect.severity] || severity.general;
       var conclusion = defect.expert_conclusion || {};
-      return '<section class="detail"><div class="detail-title">缺陷 ' + (index + 1) + '：' + esc(labels[defect.category_id] || defect.category_id) + '</div>' +
-        '<table class="defect-table"><tr><td>缺陷编号</td><td>' + esc(defect.defect_id) + '</td><td>严重程度</td><td class="severity severity-' + rule.level + '">' + rule.text + '</td></tr><tr><td>所属楼栋</td><td>' + esc(defect.building_id) + '</td><td>所属立面</td><td>' + esc(defect.facade_id) + '</td></tr></table>' +
-        '<div class="defect-desc"><b>缺陷描述：</b>' + esc(value(conclusion.text, "待专家补充")) + '</div><div class="cause-text"><b>成因分析：</b>依据冻结专家结论及已批准证据进行复核，具体成因以现场复核为准。</div><div class="treatment-text"><b>处理建议：</b>' + esc(rule.advice) + '</div><div class="photo-row">' + photos(defect) + '</div></section>';
+      var typeName = labels[defect.category_id] || defect.category_id;
+      return '<section class="detail" id="defect-' + (index + 1) + '"><div class="detail-title">缺陷 ' + (index + 1) + ' — ' + esc(typeName) + '</div>' +
+        '<table class="info-table defect-table"><tr><td>原始图像</td><td>' + esc(imageName(defect)) + '</td><td>拍摄时间</td><td>' + esc(defect.captured_at) + '</td></tr>' +
+        '<tr><td>GPS纬度</td><td>' + esc(defect.gps_latitude) + '</td><td>GPS经度</td><td>' + esc(defect.gps_longitude) + '</td></tr>' +
+        '<tr><td>拍摄高度</td><td>' + esc(defect.capture_height) + '</td><td>行人风险</td><td>' + esc(defect.pedestrian_risk || "否") + '</td></tr>' +
+        '<tr><td><strong>缺陷类型</strong></td><td colspan="3"><strong>' + esc(typeName) + '</strong><br><span class="detail-reason">判断依据：' + esc(value(conclusion.text, "依据已批准证据与冻结专家结论判定。")) + '</span></td></tr>' +
+        '<tr><td>严重程度</td><td colspan="3"><span class="severity severity-' + rule.level + '">' + rule.text + '</span><br><span class="detail-reason">严重程度依据：依据冻结专家结论、缺陷范围与现场复核要求判定。</span></td></tr>' +
+        '<tr><td>处理建议</td><td colspan="3">' + esc(rule.advice) + '</td></tr></table>' +
+        '<div class="photo-row detail-photo-row">' + photos(defect, index + 1) + '</div></section>';
     }).join("");
   }
   function render(data) {
