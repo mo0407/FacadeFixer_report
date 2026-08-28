@@ -1,0 +1,60 @@
+{
+  "schema_version": "report-document/v1",
+  "report_id": "report-demo-76",
+  "report_version": "draft-web-1",
+  "frozen_at": "2026-08-28T08:00:00Z",
+  "project": {
+    "project_id": "building-76",
+    "name": "Building_76 外墙检测鉴定",
+    "period": "2026-Q3",
+    "source_version": "project/v1",
+    "location": "浙江省杭州市（示例）",
+    "client": "委托单位待补充",
+    "overview": "本网页报告为冻结检测数据的专业预览版。工程信息、方法与责任信息须由项目负责人确认后形成正式版本。",
+    "method": "采用无人机航拍目视检查，结合经批准的缺陷证据，对外墙可见部位进行记录与复核。",
+    "standards": ["JGJ/T 277-2012", "JGJ 376-2015", "GB 50210-2018"],
+    "instruments": [
+      {"name": "无人机航拍平台", "model": "待登记", "asset_id": "待补充"},
+      {"name": "激光测距仪", "model": "待登记", "asset_id": "待补充"}
+    ],
+    "responsibility": {"inspector": "待补充", "author": "待补充", "reviewer": "待补充", "approver": "待补充"}
+  },
+  "field_catalog": [],
+  "sections": [],
+  "defects": [
+    {
+      "defect_id": "D-001",
+      "building_id": "Building_76",
+      "facade_id": "南立面",
+      "category_id": "concrete_spalling",
+      "severity": "serious",
+      "expert_conclusion": {"status": "frozen", "frozen_at": "2026-08-28T08:00:00Z", "source_version": "conclusion/v1", "text": "建议尽快安排现场复核并采取防坠落措施。"},
+      "evidence": [
+        {"evidence_id": "E-001", "state": "measured", "source": "inspection", "period": "2026-Q3", "version": "evidence/v1", "kind": "image", "approved_redaction": true, "caption": "已批准脱敏证据；正式量测/人工确认。", "image_uri": ""}
+      ]
+    },
+    {
+      "defect_id": "D-002",
+      "building_id": "Building_76",
+      "facade_id": "东立面",
+      "category_id": "concrete_crack",
+      "severity": "general",
+      "expert_conclusion": {"status": "frozen", "frozen_at": "2026-08-28T08:00:00Z", "source_version": "conclusion/v1", "text": "建议在维修前补充裂缝宽度和延伸范围复核。"},
+      "evidence": [
+        {"evidence_id": "E-002", "state": "model_estimate", "source": "model", "period": "2026-Q3", "version": "model/v2", "kind": "image", "approved_redaction": true, "caption": "模型估算，未作为正式量测。", "image_uri": ""}
+      ]
+    },
+    {
+      "defect_id": "D-003",
+      "building_id": "Building_76",
+      "facade_id": "北立面",
+      "category_id": "rust_stain",
+      "severity": "minor",
+      "expert_conclusion": {"status": "frozen", "frozen_at": "2026-08-28T08:00:00Z", "source_version": "conclusion/v1", "text": "建议结合渗水路径进行后续排查。"},
+      "evidence": [
+        {"evidence_id": "E-003", "state": "inaccessible", "reason": "高处遮挡，当前航线不可达", "source": "inspection", "period": "2026-Q3", "version": "evidence/v1", "kind": "note", "approved_redaction": true, "caption": "不可达区域，不纳入实测统计。"}
+      ]
+    }
+  ]
+}
+
