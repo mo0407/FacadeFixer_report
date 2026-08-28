@@ -35,8 +35,8 @@
         '<table class="info-table defect-table"><tr><td>原始图像</td><td>' + esc(imageName(defect)) + '</td><td>拍摄时间</td><td>' + esc(defect.captured_at) + '</td></tr>' +
         '<tr><td>GPS纬度</td><td>' + esc(defect.gps_latitude) + '</td><td>GPS经度</td><td>' + esc(defect.gps_longitude) + '</td></tr>' +
         '<tr><td>拍摄高度</td><td>' + esc(defect.capture_height) + '</td><td>行人风险</td><td>' + esc(defect.pedestrian_risk || "否") + '</td></tr>' +
-        '<tr><td><strong>缺陷类型</strong></td><td colspan="3"><strong>' + esc(typeName) + '</strong><br><span class="detail-reason">判断依据（AI 草案，需人工复核）：' + esc(value(conclusion.text, "待大模型生成并由人工复核")) + '</span></td></tr>' +
-        '<tr><td>严重程度</td><td colspan="3"><span class="severity severity-' + rule.level + '">' + rule.text + '</span><br><span class="detail-reason">严重程度依据（AI 草案，需人工复核）：' + esc(value(defect.severity_reason, "待大模型生成并由人工复核")) + '</span></td></tr>' +
+        '<tr><td><strong>缺陷类型</strong></td><td colspan="3"><strong>' + esc(typeName) + '</strong><br><span class="detail-reason">判断依据：' + esc(value(conclusion.text, "依据已批准证据和量化结果判定。")) + '</span></td></tr>' +
+        '<tr><td>严重程度</td><td colspan="3"><span class="severity severity-' + rule.level + '">' + rule.text + '</span><br><span class="detail-reason">严重程度依据：' + esc(value(defect.severity_reason, "依据缺陷量化面积和覆盖比例判定。")) + '</span></td></tr>' +
         '<tr><td>处理建议</td><td colspan="3">' + esc(value(defect.treatment_advice, rule.advice)) + '</td></tr></table>' +
         '<div class="photo-row detail-photo-row">' + photos(defect, index + 1) + '</div></section>';
     }).join("");

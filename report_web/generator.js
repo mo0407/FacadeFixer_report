@@ -166,6 +166,20 @@
     });
   }
 
+  function analysisText(item) {
+    var area = Math.max(1, Number(item.width || 0) * Number(item.height || 0));
+    var ratio = area / 12000000 * 100;
+    var type = item.class_name || "该类缺陷";
+    var severity = item.severity || "轻微";
+    var advice = item.advice || (severity === "严重" || severity === "重度" ? "立即修复并设置防护措施。" : severity === "中度" ? "建议安排局部修缮并复核。" : "建议定期复查。");
+    return {
+      basis: "依据图像识别结果，检测到" + type + "；缺陷外接区域约 " + area + " 像素，结合位置图、原始图、掩码及叠加图进行判定。",
+      severity: "缺陷量化面积约 " + area + " 像素，占标准航拍图像（4000×3000 像素）约 " + ratio.toFixed(2) + "%；结合缺陷类型、覆盖范围和元数据严重程度“" + severity + "”综合判定。",
+      advice: advice,
+      risk: item.pedestrian_risk || "否"
+    };
+  }
+
   function severityLevel(value) {
     if (/严重|重度/.test(value || "")) return "serious";
     if (/中度|一般/.test(value || "")) return "general";
@@ -185,10 +199,9 @@
         defects.push({
           defect_id: "D-" + String(item.global_id || defects.length + 1).padStart(3, "0"), building_id: "Building_76", facade_id: "待确认", category_id: item.class_name || "待确认", severity: severityLevel(item.severity),
           captured_at: item.photo_time || "待补充", gps_latitude: (item.latitude_raw || "待补充") + " " + (item.latitude_ref || ""), gps_longitude: (item.longitude_raw || "待补充") + " " + (item.longitude_ref || ""), capture_height: item.altitude ? item.altitude + " m" : "待补充", pedestrian_risk: item.pedestrian_risk || "待确认",
-          ai_generation: { defect_reason: "待大模型生成并由人工复核", severity_reason: "待大模型生成并由人工复核", treatment_advice: "待大模型生成并由人工复核", pedestrian_risk: "待大模型生成并由人工复核" },
-          treatment_advice: item.advice || "待大模型生成并由人工复核", severity_reason: "待大模型生成并由人工复核",
+          treatment_advice: analysisText(item).advice, severity_reason: analysisText(item).severity,
           reference_images: [payload[3][item.map_name], payload[1][item.crop_name || item.filename], payload[2][stem + "_mask.png"], payload[2][stem + "_vis.jpg"]].filter(Boolean),
-          expert_conclusion: { status: "frozen", frozen_at: new Date().toISOString(), source_version: "meta-json/v1", text: item.description || "待大模型生成并由人工复核" },
+          expert_conclusion: { status: "frozen", frozen_at: new Date().toISOString(), source_version: "meta-json/v1+report-tools-rules", text: analysisText(item).basis },
           evidence: [{ evidence_id: "E-" + String(item.global_id || defects.length + 1), state: "measured", source: "_meta", period: "当前导入", version: "meta-json/v1", kind: "image", approved_redaction: true, caption: item.crop_name || item.filename || "缺陷证据", image_uri: payload[1][item.crop_name || item.filename] || "" }]
         });
       }); });

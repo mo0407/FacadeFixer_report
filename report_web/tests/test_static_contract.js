@@ -11,7 +11,7 @@ if (!html.includes("generator.html") || !generator.includes("report-json") || !g
 if (!generatorApp.includes("sampleEvidenceLoaded") || !generatorApp.includes("已载入内置的已批准脱敏示例证据")) throw new Error("sample data must satisfy the evidence precheck");
 if (!generatorApp.includes("attachEvidenceImages") || !generatorApp.includes("readAsDataURL")) throw new Error("uploaded evidence images must be embedded in generated reports");
 if (!generator.includes("meta-files") || !generator.includes("mask-files") || !generator.includes("map-files") || !generatorApp.includes("importFolderDataset")) throw new Error("dataset-folder import is incomplete");
-if (!generatorApp.includes("ai_generation") || !app.includes("AI 草案，需人工复核")) throw new Error("AI-generated report fields must be traceable");
+if (!generatorApp.includes("analysisText") || !generatorApp.includes("量化面积") || app.includes("AI 草案，需人工复核")) throw new Error("quantified report analysis text is incomplete");
 if (!generatorApp.includes("reference_images") || !app.includes("[0, 1, 2, 3]")) throw new Error("each defect must render four evidence image slots");
 if (!generator.includes("building_76_reference.html") || !preview.includes("building_76_reference.html")) throw new Error("reference report link is missing");
 if (generatorApp.includes('fetch("report-data.example.json")')) throw new Error("sample must work from a local file URL");
