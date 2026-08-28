@@ -1,0 +1,45 @@
+@page { size: A4; margin: 2cm 1.8cm; }
+:root { --ink:#111; --line:#333; --muted:#555; --light:#f5f5f5; --sample:#0066cc; }
+* { box-sizing:border-box; }
+body { margin:0 auto; max-width:21cm; color:var(--ink); font-family:"SimSun","Microsoft YaHei",serif; font-size:10.5pt; line-height:1.6; }
+h1 { font-size:22pt; text-align:center; margin-top:6cm; font-weight:bold; }
+h2 { font-size:16pt; margin-top:1.2em; border-bottom:2px solid var(--line); padding-bottom:.3em; font-weight:bold; }
+h3 { font-size:13pt; margin-top:.8em; font-weight:bold; }
+table { width:100%; border-collapse:collapse; margin:.6em 0 1em; font-size:9.5pt; }
+th,td { border:1px solid var(--line); padding:5px 6px; vertical-align:middle; text-align:left; }
+th { background:#e8e8e8; text-align:center; font-weight:bold; }
+.cover { page-break-after:always; text-align:center; }
+.cover h1 { margin-top:8cm; font-size:26pt; }
+.cover p { font-size:12pt; margin-top:2cm; color:var(--muted); }
+.sign-page,.statement,.new-section,.detail { page-break-before:always; }
+.info-table td:first-child,.info-table td:nth-child(3),.defect-table td:first-child { background:var(--light); font-weight:bold; width:15%; }
+.info-table td:nth-child(2),.info-table td:nth-child(4) { width:35%; }
+.sample-text { color:var(--sample); font-style:italic; }
+.photo-row { display:flex; justify-content:center; gap:12px; margin:1em 0; flex-wrap:wrap; }
+.detail-photo-row { justify-content:space-between; flex-wrap:nowrap; gap:8px; }
+.photo-box { text-align:center; width:calc(50% - 8px); }
+.detail-photo-row .photo-box { width:calc(25% - 6px); }
+.photo-box img,.photo-placeholder { width:100%; height:8cm; object-fit:contain; border:1px solid #ccc; background:#fafafa; }
+.detail-photo-row .photo-box img,.detail-photo-row .photo-placeholder { height:6cm; }
+.photo-placeholder { display:grid; place-items:center; color:#777; font-size:9pt; }
+.caption { font-size:9pt; color:var(--muted); margin-top:.3em; }
+.detail-title { font-size:14pt; font-weight:bold; text-align:center; margin:1em 0; background:#f0f0f0; padding:8px; border:1px solid var(--line); }
+.defect-desc,.cause-text,.treatment-text { font-size:9.5pt; line-height:1.5; text-align:justify; margin:.5em 0; padding:8px; }
+.defect-desc { background:#fafafa; border-left:3px solid #666; }
+.cause-text { background:#fff8e1; border-left:3px solid #ff9800; }
+.treatment-text { background:#e8f5e9; border-left:3px solid #4caf50; }
+.severity { font-weight:bold; }.severity-1{color:#4caf50}.severity-2{color:#ff9800}.severity-3{color:#f44336}
+.detail-reason { font-size:9pt; color:#555; }
+.report-toolbar { position:fixed; top:16px; left:16px; z-index:10; display:flex; gap:8px; font-family:"Microsoft YaHei",sans-serif; }
+.report-toolbar a,.report-toolbar button { border:1px solid #555; background:#fff; color:#111; padding:7px 10px; font:13px "Microsoft YaHei",sans-serif; text-decoration:none; cursor:pointer; }
+.word-mode { max-width:none; background:#dfe4e8; padding:20px 0 40px; }
+.word-mode .report { width:21cm; margin:0 auto; }
+.word-mode .cover,.word-mode .sign-page,.word-mode .statement,.word-mode .new-section,.word-mode .detail { width:21cm; min-height:29.7cm; margin:0 auto 18px; padding:2cm 1.8cm; background:#fff; box-shadow:0 2px 12px rgba(0,0,0,.16); overflow:hidden; }
+.word-mode .cover { display:block; }
+.word-mode .detail { break-before:page; page-break-before:always; break-after:page; page-break-after:always; }
+.word-mode .detail:last-child { break-after:auto; page-break-after:auto; }
+.word-mode .detail-photo-row { break-inside:avoid; page-break-inside:avoid; }
+.word-mode .report-toolbar { position:fixed; }
+@media print { .no-print { display:none!important; } body{max-width:none;} .word-mode{background:#fff;padding:0}.word-mode .report{width:auto;margin:0}.word-mode .cover,.word-mode .sign-page,.word-mode .statement,.word-mode .new-section,.word-mode .detail{width:auto;min-height:0;margin:0;padding:0;box-shadow:none;overflow:visible} }
+@media (max-width:760px) { body{padding:0 14px;font-size:10pt}.cover h1{margin-top:25vh;font-size:22pt}.photo-box,.detail-photo-row .photo-box{width:100%}.detail-photo-row{flex-wrap:wrap}.report-toolbar{position:static;margin:12px 0} }
+
