@@ -23,6 +23,8 @@
   };
   function showError(error) { reportRoot.innerHTML = '<section class="section first"><h1>无法加载报告</h1><div class="notice">' + escapeHtml(error.message) + '</div></section>'; }
   var generated = sessionStorage.getItem("facadefixer-generated-report");
+  if (!generated) { try { generated = localStorage.getItem("facadefixer-generated-report"); } catch (ignore) {} }
+  if (!generated && window.name.indexOf("facadefixer-generated-report:") === 0) generated = window.name.slice("facadefixer-generated-report:".length);
   if (generated) { try { render(JSON.parse(generated)); } catch (error) { showError(error); } }
   else { fetch("report-data.example.json").then(function (response) { if (!response.ok) throw new Error("示例数据加载失败"); return response.json(); }).then(render).catch(showError); }
   document.getElementById("file-input").addEventListener("change", function (event) { var file = event.target.files[0]; if (!file) return; var reader = new FileReader(); reader.onload = function () { try { render(JSON.parse(reader.result)); } catch (error) { showError(error); } }; reader.readAsText(file, "utf-8"); });

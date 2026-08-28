@@ -11,6 +11,8 @@ if (!html.includes("generator.html") || !generator.includes("report-json") || !g
 if (!generatorApp.includes("sampleEvidenceLoaded") || !generatorApp.includes("已载入内置的已批准脱敏示例证据")) throw new Error("sample data must satisfy the evidence precheck");
 if (!generator.includes("building_76_reference.html")) throw new Error("reference report link is missing");
 if (generatorApp.includes('fetch("report-data.example.json")')) throw new Error("sample must work from a local file URL");
+if (!generator.includes("data-phase=\"3\"") || !generatorApp.includes("setPhase(3)") || !generatorApp.includes("网页预览已生成")) throw new Error("generation status flow is incomplete");
+if (!app.includes("localStorage.getItem") || !app.includes("window.name")) throw new Error("generated-report cross-page handoff is incomplete");
 if (data.schema_version !== "report-document/v1") throw new Error("example must use ReportDocument v1");
 ["measured", "model_estimate", "inaccessible"].forEach(function (state) { if (!app.includes(state)) throw new Error("missing status renderer: " + state); });
 if (!app.includes("window.print")) throw new Error("A4 print action missing");

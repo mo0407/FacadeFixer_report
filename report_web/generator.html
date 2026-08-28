@@ -10,7 +10,8 @@
   <header class="topbar"><div class="brand"><strong>FacadeFixer</strong><span>专业检测报告生成工作台</span></div><nav><a href="building_76_reference.html">示例报告</a><a href="preview.html">数据预览</a></nav></header>
   <main class="shell">
     <section class="hero"><p class="eyebrow">REPORT DOCUMENT V1</p><h1>从冻结检测资料生成正式报告</h1><p>提交项目数据与已批准证据，系统先完成正式版预检，再生成与 Building_76 示例相同章节结构的网页报告预览。</p></section>
-    <section class="flow" aria-label="生成流程"><div class="active"><b>1</b><span>提交材料</span></div><div><b>2</b><span>规则校验</span></div><div><b>3</b><span>生成预览</span></div><div><b>4</b><span>导出审批</span></div></section>
+    <section class="flow" aria-label="生成流程"><div class="active" data-phase="1"><b>1</b><span>提交材料</span></div><div data-phase="2"><b>2</b><span>规则校验</span></div><div data-phase="3"><b>3</b><span>生成预览</span></div><div data-phase="4"><b>4</b><span>导出审批</span></div></section>
+    <p id="flow-help" class="flow-help" aria-live="polite">第 1 步：提交报告 JSON、脱敏证据和可选附件。</p>
     <div class="layout">
       <section class="panel input-panel"><div class="panel-heading"><div><p class="eyebrow">INPUT PACKAGE</p><h2>提交报告材料</h2></div><button id="load-sample" class="secondary" type="button">载入 Building_76 示例</button></div>
         <div class="requirement"><b>正式版本最小材料</b><span>项目与期次 · 冻结专家结论 · 批准脱敏证据 · 责任信息</span></div>
