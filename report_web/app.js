@@ -8,12 +8,13 @@
   function sourceText(data) { return "本报告基于冻结的 ReportDocument v1 数据生成。模型估算、未采集、不可达和待确认信息均按原状态展示，不作为正式量测结果。"; }
   function photos(defect) {
     var evidence = defect.evidence || [];
-    var cards = evidence.slice(0, 4).map(function (item, index) {
-      var media = item.image_uri ? '<img src="' + esc(item.image_uri) + '" alt="缺陷证据">' : '<div class="photo-placeholder">证据图片待补充</div>';
-      return '<div class="photo-box">' + media + '<div class="caption">图 ' + (index + 1) + '：' + esc(item.caption || item.state || "证据说明待补充") + '</div></div>';
-    });
-    while (cards.length < 4) cards.push('<div class="photo-box"><div class="photo-placeholder">证据图片待补充</div><div class="caption">图 ' + (cards.length + 1) + '：待补充</div></div>');
-    return cards.join("");
+    var images = (defect.reference_images || []).concat(evidence.map(function (item) { return item.image_uri; })).filter(function (uri, index, all) { return uri && all.indexOf(uri) === index; });
+    if (!images.length) return '<div class="photo-box"><div class="photo-placeholder">未提供可打印的证据图片</div><div class="caption">请返回工作台选择图片文件。</div></div>';
+    return [0, 1, 2, 3].map(function (index) {
+      var uri = images[index % images.length];
+      var source = evidence[index] || evidence[0] || {};
+      return '<div class="photo-box"><img src="' + esc(uri) + '" alt="缺陷证据图 ' + (index + 1) + '"><div class="caption">图 ' + (index + 1) + '：' + esc(source.caption || source.state || "已嵌入证据图片") + '</div></div>';
+    }).join("");
   }
   function summaryRows(defects) {
     return defects.map(function (defect, index) {

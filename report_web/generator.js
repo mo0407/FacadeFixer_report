@@ -57,8 +57,8 @@
     var rolesOk = ["inspector", "author", "reviewer", "approver"].every(function (role) {
       return roles[role] && roles[role] !== "待补充";
     });
-    var evidenceOk = evidenceInput.files.length > 0 || sampleEvidenceLoaded;
-    var evidenceText = sampleEvidenceLoaded ? "已载入内置的已批准脱敏示例证据" : "已提交批准脱敏证据文件";
+    var evidenceOk = evidenceImages.length > 0 || sampleEvidenceLoaded;
+    var evidenceText = sampleEvidenceLoaded ? "已载入内置的已批准脱敏示例证据图片" : evidenceImages.length ? "已读取并嵌入证据图片" : "请至少选择一张批准脱敏证据图片";
     var valid = report.schema_version === "report-document/v1" && frozen && approved && evidenceOk && rolesOk;
 
     checks.innerHTML = [
@@ -92,16 +92,15 @@
   function loadSample() {
     try {
       var data = JSON.parse(document.getElementById("sample-data").textContent.replace(/^\+/gm, ""));
-      var sampleImages = [
-        "file:///E:/ai/%E4%BD%8E%E7%A9%BA/%E6%A3%80%E6%B5%8B%E6%8A%A5%E5%91%8A/Building_76/defects/DJI_20240930101210_0004_V_0_43_173_0_c5.jpg",
-        "file:///E:/ai/%E4%BD%8E%E7%A9%BA/%E6%A3%80%E6%B5%8B%E6%8A%A5%E5%91%8A/Building_76/defects/DJI_20240930101210_0004_V_0_43_173_1_c5.jpg",
-        "file:///E:/ai/%E4%BD%8E%E7%A9%BA/%E6%A3%80%E6%B5%8B%E6%8A%A5%E5%91%8A/Building_76/defects/DJI_20240930101210_0004_V_0_43_173_2_c5.jpg"
-      ];
+      var sampleRoot = "file:///E:/ai/%E4%BD%8E%E7%A9%BA/%E6%A3%80%E6%B5%8B%E6%8A%A5%E5%91%8A/Building_76/";
+      var sampleIds = ["DJI_20240930101210_0004_V_0_43_173_0_c5", "DJI_20240930101210_0004_V_0_43_173_1_c5", "DJI_20240930101652_0045_V_0_57_869_1_c5"];
       data.project.responsibility = { inspector: "张三、李四", author: "王五", reviewer: "赵六", approver: "孙七" };
       data.defects.forEach(function (defect, index) {
+        var imageId = sampleIds[index];
+        defect.reference_images = [sampleRoot + "single_defect_maps/" + imageId + "_map.jpg", sampleRoot + "defects/" + imageId + ".jpg", sampleRoot + "defect_masks/" + imageId + "_mask.png", sampleRoot + "defect_masks/" + imageId + "_vis.jpg"];
         defect.evidence.forEach(function (evidence) {
           evidence.approved_redaction = true;
-          if (evidence.kind === "image") evidence.image_uri = sampleImages[index] || "";
+          if (evidence.kind === "image") evidence.image_uri = defect.reference_images[1];
         });
       });
       report = data;
@@ -136,7 +135,9 @@
   function attachEvidenceImages() {
     if (!report || !evidenceImages.length) return;
     var imageIndex = 0;
-    (report.defects || []).forEach(function (defect) {
+    (report.defects || []).forEach(function (defect, defectIndex) {
+      defect.reference_images = evidenceImages.slice(defectIndex * 4, defectIndex * 4 + 4).map(function (image) { return image.uri; });
+      if (!defect.reference_images.length) defect.reference_images = [evidenceImages[defectIndex % evidenceImages.length].uri];
       (defect.evidence || []).forEach(function (evidence) {
         if (evidence.kind === "image" && evidenceImages[imageIndex]) {
           evidence.image_uri = evidenceImages[imageIndex].uri;

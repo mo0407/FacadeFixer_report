@@ -10,6 +10,7 @@ const data = JSON.parse(fs.readFileSync(path.join(root, "report-data.example.jso
 if (!html.includes("generator.html") || !generator.includes("report-json") || !generator.includes("evidence-files") || !generator.includes('id="sample-data"') || !generatorApp.includes("facadefixer-generated-report") || !preview.includes("app.js")) throw new Error("entry point is incomplete");
 if (!generatorApp.includes("sampleEvidenceLoaded") || !generatorApp.includes("已载入内置的已批准脱敏示例证据")) throw new Error("sample data must satisfy the evidence precheck");
 if (!generatorApp.includes("attachEvidenceImages") || !generatorApp.includes("readAsDataURL")) throw new Error("uploaded evidence images must be embedded in generated reports");
+if (!generatorApp.includes("reference_images") || !app.includes("[0, 1, 2, 3]")) throw new Error("each defect must render four evidence image slots");
 if (!generator.includes("building_76_reference.html") || !preview.includes("building_76_reference.html")) throw new Error("reference report link is missing");
 if (generatorApp.includes('fetch("report-data.example.json")')) throw new Error("sample must work from a local file URL");
 if (generator.includes("data-phase=") || generator.includes("flow-help")) throw new Error("unnecessary workflow indicator remains");
