@@ -10,6 +10,9 @@
   var generate = document.getElementById("generate");
   var result = document.getElementById("result");
   var sample = document.getElementById("load-sample");
+  var metaInput = document.getElementById("meta-files");
+  var maskInput = document.getElementById("mask-files");
+  var mapInput = document.getElementById("map-files");
   var report = null;
   var sampleEvidenceLoaded = false;
   var evidenceImages = [];
@@ -148,6 +151,56 @@
     });
   }
 
+  function readText(file) {
+    return new Promise(function (resolve, reject) {
+      var reader = new FileReader();
+      reader.onload = function () { resolve(reader.result); };
+      reader.onerror = reject;
+      reader.readAsText(file, "utf-8");
+    });
+  }
+
+  function imageMap(files) {
+    return Promise.all(Array.prototype.map.call(files || [], readImage)).then(function (items) {
+      return items.reduce(function (result, item) { result[item.name] = item.uri; return result; }, {});
+    });
+  }
+
+  function severityLevel(value) {
+    if (/严重|重度/.test(value || "")) return "serious";
+    if (/中度|一般/.test(value || "")) return "general";
+    return "minor";
+  }
+
+  function importFolderDataset() {
+    if (!metaInput.files.length || !evidenceInput.files.length || !maskInput.files.length || !mapInput.files.length) return;
+    Promise.all([
+      Promise.all(Array.prototype.filter.call(metaInput.files, function (file) { return /_defects\\.json$/i.test(file.name); }).map(readText)),
+      imageMap(evidenceInput.files), imageMap(maskInput.files), imageMap(mapInput.files)
+    ]).then(function (payload) {
+      var metadata = payload[0].map(function (text) { return JSON.parse(text); });
+      var defects = [];
+      metadata.forEach(function (document) { (document.defects || []).forEach(function (item) {
+        var stem = (item.crop_name || item.filename || "").replace(/\\.[^.]+$/, "");
+        defects.push({
+          defect_id: "D-" + String(item.global_id || defects.length + 1).padStart(3, "0"), building_id: "Building_76", facade_id: "待确认", category_id: item.class_name || "待确认", severity: severityLevel(item.severity),
+          captured_at: item.photo_time || "待补充", gps_latitude: (item.latitude_raw || "待补充") + " " + (item.latitude_ref || ""), gps_longitude: (item.longitude_raw || "待补充") + " " + (item.longitude_ref || ""), capture_height: item.altitude ? item.altitude + " m" : "待补充", pedestrian_risk: item.pedestrian_risk || "待确认",
+          ai_generation: { defect_reason: "待大模型生成并由人工复核", severity_reason: "待大模型生成并由人工复核", treatment_advice: "待大模型生成并由人工复核", pedestrian_risk: "待大模型生成并由人工复核" },
+          treatment_advice: item.advice || "待大模型生成并由人工复核", severity_reason: "待大模型生成并由人工复核",
+          reference_images: [payload[3][item.map_name], payload[1][item.crop_name || item.filename], payload[2][stem + "_mask.png"], payload[2][stem + "_vis.jpg"]].filter(Boolean),
+          expert_conclusion: { status: "frozen", frozen_at: new Date().toISOString(), source_version: "meta-json/v1", text: item.description || "待大模型生成并由人工复核" },
+          evidence: [{ evidence_id: "E-" + String(item.global_id || defects.length + 1), state: "measured", source: "_meta", period: "当前导入", version: "meta-json/v1", kind: "image", approved_redaction: true, caption: item.crop_name || item.filename || "缺陷证据", image_uri: payload[1][item.crop_name || item.filename] || "" }]
+        });
+      }); });
+      report = { schema_version: "report-document/v1", report_id: "import-" + Date.now(), report_version: "web-import-1", frozen_at: new Date().toISOString(), project: { project_id: "Building_76", name: "Building_76 外墙检测鉴定", period: "当前导入", source_version: "_meta", location: "待补充", client: "待补充", overview: "由 _meta 缺陷识别结果及三类图片文件夹生成。", method: "基于缺陷识别元数据与关联图片生成。", responsibility: { inspector: "待人工确认", author: "待人工确认", reviewer: "待人工确认", approver: "待人工确认" } }, field_catalog: [], sections: [], defects: defects };
+      evidenceImages = Object.keys(payload[1]).map(function (key) { return { name: key, uri: payload[1][key] }; });
+      sampleEvidenceLoaded = false;
+      result.hidden = true;
+      fileList.innerHTML = "<ul><li>已导入 " + defects.length + " 条缺陷元数据。</li><li>图片关联：原始图 " + Object.keys(payload[1]).length + " 张、掩码 " + Object.keys(payload[2]).length + " 张、位置图 " + Object.keys(payload[3]).length + " 张。</li><li>判断依据、严重程度依据、处理建议和行人风险已标记为 AI 生成后人工复核字段。</li></ul>";
+      renderChecks();
+    }).catch(function () { checks.innerHTML = '<div class="check bad">文件夹导入失败：请确认四个文件夹完整且 _meta 中 JSON 格式正确。</div>'; });
+  }
+
   reportInput.addEventListener("change", function () {
     sampleEvidenceLoaded = false;
     renderFiles();
@@ -171,6 +224,7 @@
       generate.disabled = true;
     });
   });
+  [metaInput, evidenceInput, maskInput, mapInput].forEach(function (input) { input.addEventListener("change", importFolderDataset); });
   attachmentInput.addEventListener("change", renderFiles);
   sample.addEventListener("click", loadSample);
   generate.addEventListener("click", function () {

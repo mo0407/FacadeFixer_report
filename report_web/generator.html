@@ -13,9 +13,11 @@
     <div class="layout">
       <section class="panel input-panel"><div class="panel-heading"><div><p class="eyebrow">INPUT PACKAGE</p><h2>提交报告材料</h2></div><button id="load-sample" class="secondary" type="button">载入 Building_76 示例</button></div>
         <div class="requirement"><b>正式版本最小材料</b><span>项目与期次 · 冻结专家结论 · 批准脱敏证据 · 责任信息</span></div>
-        <label class="upload required"><span class="file-icon">01</span><span><b>ReportDocument JSON</b><small>必填 · schema_version 必须为 report-document/v1</small></span><input id="report-json" type="file" accept="application/json"></label>
-        <label class="upload required"><span class="file-icon">02</span><span><b>批准脱敏证据</b><small>必填 · 可选择图片、PDF 或 ZIP；仅列入批准材料</small></span><input id="evidence-files" type="file" accept="image/*,application/pdf,.zip" multiple></label>
-        <label class="upload"><span class="file-icon">03</span><span><b>项目依据与附件</b><small>可选 · 标准、图纸、仪器校准或委托资料</small></span><input id="attachment-files" type="file" multiple></label>
+        <label class="upload required"><span class="file-icon">01</span><span><b>缺陷元数据文件夹（_meta）</b><small>必填 · 选择包含 *_defects.json 的文件夹</small></span><input id="meta-files" type="file" accept="application/json" webkitdirectory directory multiple></label>
+        <label class="upload required"><span class="file-icon">02</span><span><b>原始缺陷图片文件夹（defects）</b><small>必填 · 与 JSON 的 crop_name 对应</small></span><input id="evidence-files" type="file" accept="image/*" webkitdirectory directory multiple></label>
+        <label class="upload required"><span class="file-icon">03</span><span><b>缺陷掩码文件夹（defect_masks）</b><small>必填 · 包含 *_mask.png 与 *_vis.jpg</small></span><input id="mask-files" type="file" accept="image/*" webkitdirectory directory multiple></label>
+        <label class="upload required"><span class="file-icon">04</span><span><b>缺陷位置图文件夹（single_defect_maps）</b><small>必填 · 与 JSON 的 map_name 对应</small></span><input id="map-files" type="file" accept="image/*" webkitdirectory directory multiple></label>
+        <label class="upload"><span class="file-icon">05</span><span><b>ReportDocument JSON / 项目附件</b><small>可选 · 已有版本化报告数据或标准、图纸、校准资料</small></span><input id="report-json" type="file" accept="application/json"></label><input id="attachment-files" type="file" multiple hidden>
         <div id="file-list" class="file-list" aria-live="polite">尚未选择文件。</div>
         <details><summary>查看字段和状态规则</summary><ul><li>报告仅接受 <code>frozen</code> 的专家结论；草稿结论不能进入正式版。</li><li>图片证据须标记 <code>approved_redaction=true</code>。</li><li>模型估算、未采集、不可达、待确认不会计入正式量测统计。</li></ul></details>
       </section>
