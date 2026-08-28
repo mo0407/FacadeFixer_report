@@ -55,6 +55,6 @@
   }
   function showError(error) { reportRoot.innerHTML = '<section class="new-section"><h2>无法加载报告</h2><p>' + esc(error.message) + '</p></section>'; }
   try { var generated = readGenerated(); if (!generated) throw new Error("请先在报告生成工作台生成网页报告预览。"); render(JSON.parse(generated)); } catch (error) { showError(error); }
-  document.getElementById("print-button").addEventListener("click", function () { window.print(); });
+  document.getElementById("print-button").addEventListener("click", function () { window.focus(); window.print(); });
 }());
 

@@ -12,6 +12,7 @@
   var sample = document.getElementById("load-sample");
   var report = null;
   var sampleEvidenceLoaded = false;
+  var evidenceImages = [];
   var phase = 1;
 
   function setPhase(nextPhase) {
@@ -91,12 +92,21 @@
   function loadSample() {
     try {
       var data = JSON.parse(document.getElementById("sample-data").textContent.replace(/^\+/gm, ""));
+      var sampleImages = [
+        "file:///E:/ai/%E4%BD%8E%E7%A9%BA/%E6%A3%80%E6%B5%8B%E6%8A%A5%E5%91%8A/Building_76/defects/DJI_20240930101210_0004_V_0_43_173_0_c5.jpg",
+        "file:///E:/ai/%E4%BD%8E%E7%A9%BA/%E6%A3%80%E6%B5%8B%E6%8A%A5%E5%91%8A/Building_76/defects/DJI_20240930101210_0004_V_0_43_173_1_c5.jpg",
+        "file:///E:/ai/%E4%BD%8E%E7%A9%BA/%E6%A3%80%E6%B5%8B%E6%8A%A5%E5%91%8A/Building_76/defects/DJI_20240930101210_0004_V_0_43_173_2_c5.jpg"
+      ];
       data.project.responsibility = { inspector: "张三、李四", author: "王五", reviewer: "赵六", approver: "孙七" };
-      data.defects.forEach(function (defect) {
-        defect.evidence.forEach(function (evidence) { evidence.approved_redaction = true; });
+      data.defects.forEach(function (defect, index) {
+        defect.evidence.forEach(function (evidence) {
+          evidence.approved_redaction = true;
+          if (evidence.kind === "image") evidence.image_uri = sampleImages[index] || "";
+        });
       });
       report = data;
       sampleEvidenceLoaded = true;
+      evidenceImages = [];
       result.hidden = true;
       renderChecks();
       fileList.innerHTML = "<ul><li>已载入 Building_76 示例数据和内置的已批准脱敏示例证据。</li></ul>";
@@ -114,6 +124,29 @@
     window.name = "facadefixer-generated-report:" + serialized;
   }
 
+  function readImage(file) {
+    return new Promise(function (resolve, reject) {
+      var reader = new FileReader();
+      reader.onload = function () { resolve({ name: file.name, uri: reader.result }); };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function attachEvidenceImages() {
+    if (!report || !evidenceImages.length) return;
+    var imageIndex = 0;
+    (report.defects || []).forEach(function (defect) {
+      (defect.evidence || []).forEach(function (evidence) {
+        if (evidence.kind === "image" && evidenceImages[imageIndex]) {
+          evidence.image_uri = evidenceImages[imageIndex].uri;
+          evidence.caption = evidence.caption || evidenceImages[imageIndex].name;
+          imageIndex += 1;
+        }
+      });
+    });
+  }
+
   reportInput.addEventListener("change", function () {
     sampleEvidenceLoaded = false;
     renderFiles();
@@ -126,7 +159,16 @@
   evidenceInput.addEventListener("change", function () {
     sampleEvidenceLoaded = false;
     renderFiles();
-    renderChecks();
+    var imageFiles = Array.prototype.filter.call(this.files || [], function (file) { return file.type.indexOf("image/") === 0; });
+    Promise.all(imageFiles.map(readImage)).then(function (images) {
+      evidenceImages = images;
+      attachEvidenceImages();
+      renderChecks();
+    }).catch(function () {
+      evidenceImages = [];
+      checks.innerHTML = '<div class="check bad">证据图片读取失败，请重新选择图片文件。</div>';
+      generate.disabled = true;
+    });
   });
   attachmentInput.addEventListener("change", renderFiles);
   sample.addEventListener("click", loadSample);

@@ -44,6 +44,9 @@ th { background: #e8e8e8; text-align: center; font-weight: bold; }
 .toc a { display: block; font-size: 12px; color: #666; text-decoration: none; padding: 3px 0; }
 .toc a:hover { color: #d32f2f; }
 @media print { .toc { display: none; } }
+.report-toolbar { position: fixed; top: 16px; left: 16px; z-index: 200; }
+.report-toolbar button { border: 1px solid #333; background: #fff; color: #111; padding: 7px 10px; cursor: pointer; font: 13px "Microsoft YaHei", sans-serif; }
+@media print { .report-toolbar { display: none; } }
 .severity { font-weight: bold; }
 .severity-1 { color: #4caf50; } .severity-2 { color: #ff9800; } .severity-3 { color: #f44336; }
 .section-title { font-size: 11pt; font-weight: bold; color: #333; margin-top: 12px; padding: 6px 0; border-left: 4px solid #d32f2f; padding-left: 10px; }
@@ -51,6 +54,7 @@ th { background: #e8e8e8; text-align: center; font-weight: bold; }
 </style>
 </head>
 <body>
+<div class="report-toolbar"><button id="print-button" type="button">打印预览</button></div>
 <div class="cover">
 <h1>Building_76<br>外墙检测鉴定报告</h1>
 <p style="margin-top:4cm; font-size:14pt;">基于无人机航拍与AI智能识别技术</p>
@@ -2960,4 +2964,6 @@ th { background: #e8e8e8; text-align: center; font-weight: bold; }
 <h2>附件一：公司资质材料</h2>
 <p><span class="sample-text">[样例：企业营业执照、资质证书、计量认证证书等。]</span></p>
 </div>
+<script>document.getElementById("print-button").addEventListener("click", function () { window.focus(); window.print(); });</script>
 </body></html>
+
