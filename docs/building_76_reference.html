@@ -1,0 +1,3197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<base href="assets/Building_76/">
+<meta charset="utf-8">
+<title>Building_76 外墙检测鉴定报告</title>
+<style>
+@page { size: A4; margin: 2cm 1.8cm 2cm 1.8cm; }
+body { font-family: "SimSun", "Microsoft YaHei", serif; font-size: 10.5pt; line-height: 1.6; color: #111; max-width: 21cm; margin: 0 auto; }
+h1 { font-size: 22pt; text-align: center; margin-top: 6cm; font-weight: bold; }
+h2 { font-size: 16pt; margin-top: 1.2em; border-bottom: 2px solid #333; padding-bottom: 0.3em; font-weight: bold; }
+h3 { font-size: 13pt; margin-top: 0.8em; font-weight: bold; }
+h4 { font-size: 11pt; margin-top: 0.6em; font-weight: bold; }
+table { width: 100%; border-collapse: collapse; margin: 0.6em 0 1em; font-size: 9.5pt; }
+th, td { border: 1px solid #333; padding: 5px 6px; vertical-align: middle; text-align: left; }
+th { background: #e8e8e8; text-align: center; font-weight: bold; }
+.cover { page-break-after: always; text-align: center; }
+.cover h1 { margin-top: 8cm; font-size: 26pt; }
+.cover p { font-size: 12pt; margin-top: 2cm; color: #555; }
+.sign-page { page-break-before: always; }
+.statement { page-break-before: always; }
+.new-section { page-break-before: always; }
+.info-table td:first-child { background: #f5f5f5; font-weight: bold; width: 15%; }
+.info-table td:nth-child(2) { width: 35%; }
+.info-table td:nth-child(3) { background: #f5f5f5; font-weight: bold; width: 15%; }
+.info-table td:nth-child(4) { width: 35%; }
+.sample-text { color: #0066cc; font-style: italic; }
+.photo-row { display: flex; justify-content: center; gap: 20px; margin: 1em 0; flex-wrap: wrap; }
+.photo-box { text-align: center; }
+.photo-box img { max-width: 9cm; max-height: 12cm; border: 1px solid #ccc; }
+.photo-box .caption { font-size: 9pt; color: #555; margin-top: 0.3em; }
+.note { font-size: 9pt; color: #555; margin-top: 1em; }
+.index-table th { text-align: center; }
+.index-table td { text-align: center; }
+.detail { page-break-before: always; }
+.detail-title { font-size: 14pt; font-weight: bold; text-align: center; margin: 1em 0; background: #f0f0f0; padding: 8px; border: 1px solid #333; }
+.defect-table { margin-top: 0.5em; }
+.defect-table td:first-child { background: #f5f5f5; font-weight: bold; width: 15%; }
+.defect-desc { font-size: 9.5pt; line-height: 1.5; text-align: justify; margin: 0.5em 0; padding: 8px; background: #fafafa; border-left: 3px solid #666; }
+.cause-text { font-size: 9.5pt; line-height: 1.5; text-align: justify; margin: 0.5em 0; padding: 8px; background: #fff8e1; border-left: 3px solid #ff9800; }
+.treatment-text { font-size: 9.5pt; line-height: 1.5; text-align: justify; margin: 0.5em 0; padding: 8px; background: #e8f5e9; border-left: 3px solid #4caf50; }
+.toc { position: fixed; top: 20px; right: 20px; background: #fff; border-radius: 8px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); max-height: 80vh; overflow-y: auto; width: 200px; z-index: 100; }
+.toc h3 { margin-top: 0; font-size: 14px; color: #333; }
+.toc a { display: block; font-size: 12px; color: #666; text-decoration: none; padding: 3px 0; }
+.toc a:hover { color: #d32f2f; }
+@media print { .toc { display: none; } }
+.report-toolbar { position: fixed; top: 16px; left: 16px; z-index: 200; }
+.report-toolbar button { border: 1px solid #333; background: #fff; color: #111; padding: 7px 10px; cursor: pointer; font: 13px "Microsoft YaHei", sans-serif; }
+@media print { .report-toolbar { display: none; } }
+.word-mode { max-width: none; background: #dfe4e8; padding: 20px 0 40px; }
+.word-mode > .cover,.word-mode > .sign-page,.word-mode > .statement,.word-mode > .new-section,.word-mode .detail { box-sizing: border-box; width: 21cm; max-width: 21cm; min-height: 29.7cm; margin: 0 auto 18px; padding: 2cm 1.8cm; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,.16); overflow: hidden; }
+.word-mode .detail { break-before: page; page-break-before: always; break-after: page; page-break-after: always; }
+.word-mode .detail:last-child { break-after: auto; page-break-after: auto; }
+.word-mode .summary-page table { table-layout: fixed; font-size: 8pt; }
+@media print { .word-mode { background: #fff; padding: 0; } .word-mode > .cover,.word-mode > .sign-page,.word-mode > .statement,.word-mode > .new-section,.word-mode .detail { width: auto; min-height: 0; margin: 0; padding: 0; box-shadow: none; overflow: visible; } }
+.severity { font-weight: bold; }
+.severity-1 { color: #4caf50; } .severity-2 { color: #ff9800; } .severity-3 { color: #f44336; }
+.section-title { font-size: 11pt; font-weight: bold; color: #333; margin-top: 12px; padding: 6px 0; border-left: 4px solid #d32f2f; padding-left: 10px; }
+.standard-ref { font-size: 9pt; color: #666; margin-top: 8px; font-style: italic; }
+</style>
+</head>
+<body>
+<div class="report-toolbar"><button id="word-toggle" type="button" aria-pressed="false">Word 分页版</button><button id="print-button" type="button">打印预览</button></div>
+<div class="cover">
+<h1>Building_76<br>外墙检测鉴定报告</h1>
+<p style="margin-top:4cm; font-size:14pt;">基于无人机航拍与AI智能识别技术</p>
+<p style="margin-top:1cm; font-size:11pt; color:#666;">检测日期：2024年03月14日<br>报告日期：2026年07月17日</p>
+</div>
+<div class="sign-page">
+<h2>报告签署页</h2>
+<table class='info-table'>
+<tr><th>项目</th><th>内容</th><th>项目</th><th>内容</th></tr>
+<tr><td>委托单位</td><td><span class="sample-text">[样例：杭州市拱墅区某小区业主委员会]</span></td><td>工程名称</td><td>Building_76 外墙检测</td></tr>
+<tr><td>工程地点</td><td><span class="sample-text">[样例：浙江省杭州市拱墅区依山路与半山东路交汇处]</span></td><td>项目类型</td><td>外墙外立面检测鉴定</td></tr>
+<tr><td>现场检测</td><td><span class="sample-text">[样例：张三、李四]</span></td><td>报告编写</td><td><span class="sample-text">[样例：王五]</span></td></tr>
+<tr><td>报告审核</td><td><span class="sample-text">[样例：赵六]</span></td><td>报告批准</td><td><span class="sample-text">[样例：孙七]</span></td></tr>
+<tr><td>签发日期</td><td><span class="sample-text">[样例：2026年07月17日]</span></td><td>企业资质</td><td><span class="sample-text">[样例：（浙）建检专字第2025XXXX号]</span></td></tr>
+</table>
+</div>
+<div class="statement">
+<h2>企业声明</h2>
+<p>1、本报告及复印件无本公司鉴定报告专用章或公章无效；</p>
+<p>2、本报告无编写人、审核人、批准人签名无效；</p>
+<p>3、本报告内容有涂改、错页、换页、漏页等情况报告无效；</p>
+<p>4、本报告采信的信息和依据来源于委托方的，其真实可靠性由委托方负责，对其提供信息和依据错漏所导致的后果受托方免责；</p>
+<p>5、本报告仅对委托检测范围内容负责；</p>
+<p>6、对报告若有异议，委托方可在收到报告十五日内向本公司书面提出；</p>
+<p>7、本公司热忱欢迎委托方对本公司报告、人员及工作提出任何的建议及意见，并将及时予以回复。</p>
+</div>
+<div class="new-section">
+<h2>目    录</h2>
+<p><strong>一、工程概况</strong></p>
+<p><strong>二、鉴定目的、对象、内容及方法</strong></p>
+<p style="margin-left:2em;">2.1 鉴定目的</p>
+<p style="margin-left:2em;">2.2 鉴定对象</p>
+<p style="margin-left:2em;">2.3 鉴定内容</p>
+<p style="margin-left:2em;">2.4 鉴定方法</p>
+<p style="margin-left:2em;">2.5 鉴定标准</p>
+<p><strong>三、鉴定依据及材料</strong></p>
+<p><strong>四、主要检测仪器</strong></p>
+<p><strong>五、现场勘验及检测情况</strong></p>
+<p style="margin-left:2em;">5.1 目视法查勘各立面缺陷情况</p>
+<p style="margin-left:2em;">5.2 红外热像法检测外墙外保温系统热工缺陷</p>
+<p style="margin-left:2em;">5.3 建筑物外墙外立面缺陷情况</p>
+<p><strong>六、鉴定结论</strong></p>
+<p><strong>七、建议与说明</strong></p>
+<p><strong>附件一：公司资质材料</strong></p>
+</div>
+<!-- 一、工程概况 -->
+<div class="new-section">
+<h2>一、工程概况</h2>
+<p><span class="sample-text">[样例：{self.building_name} 位于浙江省杭州市拱墅区某路与某路交汇处，约建于2015年，建设单位为某房地产开发有限公司、设计单位为某设计顾问有限公司、施工单位为某建设集团有限公司、监理单位为某建设监理有限公司。]</span></p>
+<p><span class="sample-text">[样例：经现场查勘及委托方提供资料，{self.building_name} 为地下二层，地上二十层钢筋混凝土剪力墙结构建筑，主要建筑功能为小区住宅，基础采用桩基础，主体结构由现浇钢筋混凝土墙、柱、梁、板承重。]</span></p>
+<p><span class="sample-text">[样例：外墙做法：基层墙体+界面砂浆+30厚无机轻集料保温砂浆B型外保温+抗裂砂浆复合耐碱玻纤网+面砖粘结砂浆+外墙面砖。]</span></p>
+<p><span class="sample-text">[样例：因外墙面存在空鼓、脱落及装饰条（含线条、檐口等附属构件）、腰线开裂、松动等现象，为了了解 {self.building_name} 外墙目前质量情况，受某业主委员会委托，对 {self.building_name} 外墙进行检测，并出具外墙外立面检测鉴定报告。]</span></p>
+</div>
+
+<!-- 二、鉴定目的、对象、内容及方法 -->
+<div class="new-section">
+<h2>二、鉴定目的、对象、内容及方法</h2>
+<h3>2.1 鉴定目的</h3>
+<p><span class="sample-text">[样例：核查被鉴定的建筑物外墙外立面空鼓及外墙构造情况。依据有关技术标准与规范、规程，在此基础上进行外墙外立面空鼓及外墙构造检测鉴定工作，并结合建筑物实际情况，提出合理性的处理方案及建议。]</span></p>
+<h3>2.2 鉴定对象</h3>
+<p><span class="sample-text">[样例：{self.building_name} 外墙外立面（不含二层及以下干挂厚石板材部分）。]</span></p>
+<h3>2.3 鉴定内容</h3>
+<p><span class="sample-text">[样例：根据委托方提供的资料进行现场抽样复核。本次检测鉴定的内容为：对外墙面空鼓、脱落及装饰条（含线条、檐口等附属构件）、腰线开裂、松动等进行查勘。根据现场勘验技术数据，遵照国家有关技术标准与规范、规程对该建筑外墙外观质量进行鉴定。]</span></p>
+<h3>2.4 鉴定方法</h3>
+<p><span class="sample-text">[样例：结合目视法、红外热成像法，查明缺陷存在的位置、大致范围面积。]</span></p>
+<h3>2.5 鉴定标准</h3>
+<p><span class="sample-text">[样例：当保温砂浆类外墙外保温系统的空鼓面积比不大于15%或保温板材类、现场喷涂类外墙外保温系统的粘结强度不低于原设计值70%，宜进行局部修缮；当保温砂浆类外墙外保温系统的空鼓面积比大于15%或保温板材类、现场喷涂类外墙外保温系统的粘结强度低于原设计值70%，或出现明显的空鼓、脱落情况时应进行单元墙体整体修缮。]</span></p>
+</div>
+
+<!-- 三、鉴定依据及材料 -->
+<div class="new-section">
+<h2>三、鉴定依据及材料</h2>
+<p>1、《建筑工程施工质量验收统一标准》GB 50300-2013；</p>
+<p>2、《建筑外墙外保温系统修缮标准》JGJ 376-2015；</p>
+<p>3、《红外热像法检测建筑外墙饰面粘结质量技术规程》JGJ/T 277-2012；</p>
+<p>4、《建筑装饰装修工程质量验收标准》GB 50210-2018；</p>
+<p>5、《外墙外保温工程技术规程》JGJ 144-2004；</p>
+<p>6、<span class="sample-text">[样例：委托方提供的设计图纸及其他相关国家标准规范。]</span></p>
+</div>
+
+<!-- 四、主要检测仪器 -->
+<div class="new-section">
+<h2>四、主要检测仪器</h2>
+<table>
+<tr><th>序号</th><th>仪器名称</th><th>仪器型号规格</th><th>管理编号</th></tr>
+<tr><td>1</td><td><span class="sample-text">[样例：热成像无人机]</span></td><td><span class="sample-text">[样例：DJ Matrice 4T]</span></td><td><span class="sample-text">[样例：YQ1538]</span></td></tr>
+<tr><td>2</td><td><span class="sample-text">[样例：激光测距仪]</span></td><td><span class="sample-text">[样例：SW-50G]</span></td><td><span class="sample-text">[样例：YQ427]</span></td></tr>
+<tr><td>3</td><td><span class="sample-text">[样例：钢卷尺]</span></td><td><span class="sample-text">[样例：5m]</span></td><td><span class="sample-text">[样例：YQ896]</span></td></tr>
+</table>
+</div>
+
+<!-- 五、现场勘验及检测情况 -->
+<div class="new-section">
+<h2>五、现场勘验及检测情况</h2>
+<p>根据委托要求及检测鉴定工作的需要，我公司于 2024 年 03 月 14 日对 Building_76 建筑外墙进行现场勘验。本次检测采用无人机搭载高清相机对各外立面进行航拍，获取原始图像 18 张，经 AI 智能识别系统分析后，共发现缺陷 90 处。详细内容如下：</p>
+
+<h3>5.1 目视法查勘各立面缺陷情况</h3>
+<p>现场采用目视法（无人机航拍AI识别）对 Building_76 各外立面进行检测，经分析，各建筑外立面均存在不同程度的缺陷情况。共识别出 90 处缺陷，涵盖以下类别：</p>
+<table class='index-table'>
+<tr><th>类别编号</th><th>缺陷类型</th><th>缺陷数量（处）</th></tr>
+<tr><td>0</td><td>裂缝</td><td>24</td></tr>
+<tr><td>1</td><td>空鼓</td><td>7</td></tr>
+<tr><td>2</td><td>剥落</td><td>11</td></tr>
+<tr><td>3</td><td>锈迹</td><td>16</td></tr>
+<tr><td>4</td><td>渗漏</td><td>1</td></tr>
+<tr><td>5</td><td>大面积剥落</td><td>12</td></tr>
+<tr><td>9</td><td>水渍</td><td>18</td></tr>
+<tr><td>11</td><td>污染物/附着物</td><td>1</td></tr>
+<tr><td colspan='2'><strong>合计</strong></td><td><strong>90</strong></td></tr>
+</table>
+</div>
+
+<div class="new-section">
+<h2>五、现场勘验及检测情况（续）</h2>
+<h3>5.2 红外热像法检测外墙外保温系统热工缺陷</h3>
+<p><span class="sample-text">[样例：现场采用红外热像仪对 {self.building_name} 外墙东、南、西、北四个外立面进行检测，检测时段严格遵守《红外热像法检测建筑外墙饰面粘结质量技术规程》JGJ/T277-2012 附录B 规定。各外立面红外热像图详见附件。]</span></p>
+<p><span class="sample-text">[样例：注：本次检测为无人机航拍目视检测，红外热像法检测部分需补充现场红外热像仪数据。]</span></p>
+
+<h3>5.3 建筑物外墙外立面缺陷情况</h3>
+<p>结合目视法（无人机航拍AI识别）检测结果，缺陷存在的区域及详细情况如下。具体缺陷详情见下表：</p>
+
+<table class='index-table summary-table'>
+<tr><th>序号</th><th>缺陷类型</th><th>原始图</th><th>严重程度</th><th>处理建议</th><th>序号</th><th>缺陷类型</th><th>原始图</th><th>严重程度</th><th>处理建议</th></tr>
+<tr><td>1</td><td>大面积剥落</td><td>DJI_20240930101210_0004_V.JPG</td><td>严重缺陷</td><td>立即修复</td><td>2</td><td>大面积剥落</td><td>DJI_20240930101210_0004_V.JPG</td><td>严重缺陷</td><td>立即修复</td></tr>
+<tr><td>3</td><td>裂缝</td><td>DJI_20240930101210_0004_V.JPG</td><td>轻微缺陷</td><td>暂不修复</td><td>4</td><td>空鼓</td><td>DJI_20240930101342_0023_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>5</td><td>裂缝</td><td>DJI_20240930101342_0023_V.JPG</td><td>一般缺陷</td><td>小修</td><td>6</td><td>水渍</td><td>DJI_20240930101342_0023_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>7</td><td>裂缝</td><td>DJI_20240930101342_0023_V.JPG</td><td>一般缺陷</td><td>小修</td><td>8</td><td>污染物/附着物</td><td>DJI_20240930101342_0023_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>9</td><td>裂缝</td><td>DJI_20240930101652_0045_V.JPG</td><td>一般缺陷</td><td>小修</td><td>10</td><td>大面积剥落</td><td>DJI_20240930101652_0045_V.JPG</td><td>严重缺陷</td><td>立即修复</td></tr>
+<tr><td>11</td><td>锈迹</td><td>DJI_20240930101935_0068_V.JPG</td><td>轻微缺陷</td><td>暂不修复</td><td>12</td><td>裂缝</td><td>DJI_20240930101935_0068_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>13</td><td>锈迹</td><td>DJI_20240930102216_0086_V.JPG</td><td>一般缺陷</td><td>小修</td><td>14</td><td>裂缝</td><td>DJI_20240930102216_0086_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>15</td><td>裂缝</td><td>DJI_20240930102411_0093_V.JPG</td><td>一般缺陷</td><td>小修</td><td>16</td><td>裂缝</td><td>DJI_20240930102411_0093_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>17</td><td>裂缝</td><td>DJI_20240930102411_0093_V.JPG</td><td>一般缺陷</td><td>小修</td><td>18</td><td>空鼓</td><td>DJI_20240930102411_0093_V.JPG</td><td>轻微缺陷</td><td>暂不修复</td></tr>
+<tr><td>19</td><td>锈迹</td><td>DJI_20240930102411_0093_V.JPG</td><td>严重缺陷</td><td>立即修复</td><td>20</td><td>剥落</td><td>DJI_20240930102411_0093_V.JPG</td><td>严重缺陷</td><td>立即修复</td></tr>
+<tr><td>21</td><td>锈迹</td><td>DJI_20240930102411_0093_V.JPG</td><td>轻微缺陷</td><td>暂不修复</td><td>22</td><td>空鼓</td><td>DJI_20240930102411_0093_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>23</td><td>裂缝</td><td>DJI_20240930102411_0093_V.JPG</td><td>一般缺陷</td><td>小修</td><td>24</td><td>裂缝</td><td>DJI_20240930102420_0094_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>25</td><td>裂缝</td><td>DJI_20240930102420_0094_V.JPG</td><td>一般缺陷</td><td>小修</td><td>26</td><td>空鼓</td><td>DJI_20240930102420_0094_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>27</td><td>大面积剥落</td><td>DJI_20240930102420_0094_V.JPG</td><td>严重缺陷</td><td>立即修复</td><td>28</td><td>剥落</td><td>DJI_20240930102420_0094_V.JPG</td><td>严重缺陷</td><td>立即修复</td></tr>
+<tr><td>29</td><td>裂缝</td><td>DJI_20240930102420_0094_V.JPG</td><td>轻微缺陷</td><td>暂不修复</td><td>30</td><td>锈迹</td><td>DJI_20240930102420_0094_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>31</td><td>大面积剥落</td><td>DJI_20240930102441_0101_V.JPG</td><td>严重缺陷</td><td>立即修复</td><td>32</td><td>剥落</td><td>DJI_20240930102441_0101_V.JPG</td><td>严重缺陷</td><td>立即修复</td></tr>
+<tr><td>33</td><td>剥落</td><td>DJI_20240930102441_0101_V.JPG</td><td>严重缺陷</td><td>立即修复</td><td>34</td><td>空鼓</td><td>DJI_20240930102441_0101_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>35</td><td>锈迹</td><td>DJI_20240930102441_0101_V.JPG</td><td>严重缺陷</td><td>大修</td><td>36</td><td>大面积剥落</td><td>DJI_20240930102441_0101_V.JPG</td><td>严重缺陷</td><td>立即修复</td></tr>
+<tr><td>37</td><td>大面积剥落</td><td>DJI_20240930102443_0102_V.JPG</td><td>严重缺陷</td><td>立即修复</td><td>38</td><td>剥落</td><td>DJI_20240930102443_0102_V.JPG</td><td>严重缺陷</td><td>立即修复</td></tr>
+<tr><td>39</td><td>剥落</td><td>DJI_20240930102443_0102_V.JPG</td><td>严重缺陷</td><td>立即修复</td><td>40</td><td>裂缝</td><td>DJI_20240930102443_0102_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>41</td><td>裂缝</td><td>DJI_20240930102443_0102_V.JPG</td><td>一般缺陷</td><td>小修</td><td>42</td><td>锈迹</td><td>DJI_20240930102722_0116_V.JPG</td><td>轻微缺陷</td><td>暂不修复</td></tr>
+<tr><td>43</td><td>剥落</td><td>DJI_20240930102722_0116_V.JPG</td><td>严重缺陷</td><td>立即修复</td><td>44</td><td>裂缝</td><td>DJI_20240930102722_0116_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>45</td><td>大面积剥落</td><td>DJI_20240930102722_0116_V.JPG</td><td>严重缺陷</td><td>立即修复</td><td>46</td><td>裂缝</td><td>DJI_20240930102722_0116_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>47</td><td>锈迹</td><td>DJI_20240930102943_0128_V.JPG</td><td>严重缺陷</td><td>立即修复</td><td>48</td><td>锈迹</td><td>DJI_20240930102943_0128_V.JPG</td><td>严重缺陷</td><td>立即修复</td></tr>
+<tr><td>49</td><td>裂缝</td><td>DJI_20240930102943_0128_V.JPG</td><td>一般缺陷</td><td>小修</td><td>50</td><td>锈迹</td><td>DJI_20240930102943_0128_V.JPG</td><td>严重缺陷</td><td>立即修复</td></tr>
+<tr><td>51</td><td>大面积剥落</td><td>DJI_20240930103947_0037_V.JPG</td><td>严重缺陷</td><td>立即修复</td><td>52</td><td>锈迹</td><td>DJI_20240930103947_0037_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>53</td><td>剥落</td><td>DJI_20240930103947_0037_V.JPG</td><td>严重缺陷</td><td>立即修复</td><td>54</td><td>裂缝</td><td>DJI_20240930103947_0037_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>55</td><td>大面积剥落</td><td>DJI_20240930104006_0043_V.JPG</td><td>严重缺陷</td><td>立即修复</td><td>56</td><td>锈迹</td><td>DJI_20240930104006_0043_V.JPG</td><td>严重缺陷</td><td>大修</td></tr>
+<tr><td>57</td><td>裂缝</td><td>DJI_20240930104006_0043_V.JPG</td><td>一般缺陷</td><td>小修</td><td>58</td><td>剥落</td><td>DJI_20240930104006_0043_V.JPG</td><td>严重缺陷</td><td>立即修复</td></tr>
+<tr><td>59</td><td>大面积剥落</td><td>DJI_20240930104257_0062_V.JPG</td><td>严重缺陷</td><td>立即修复</td><td>60</td><td>裂缝</td><td>DJI_20240930104257_0062_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>61</td><td>水渍</td><td>DJI_20240930110454_0014_V.JPG</td><td>一般缺陷</td><td>小修</td><td>62</td><td>水渍</td><td>DJI_20240930110454_0014_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>63</td><td>水渍</td><td>DJI_20240930110454_0014_V.JPG</td><td>一般缺陷</td><td>小修</td><td>64</td><td>水渍</td><td>DJI_20240930110454_0014_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>65</td><td>水渍</td><td>DJI_20240930110454_0014_V.JPG</td><td>一般缺陷</td><td>小修</td><td>66</td><td>水渍</td><td>DJI_20240930110454_0014_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>67</td><td>水渍</td><td>DJI_20240930110454_0014_V.JPG</td><td>一般缺陷</td><td>小修</td><td>68</td><td>水渍</td><td>DJI_20240930110454_0014_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>69</td><td>水渍</td><td>DJI_20240930110454_0014_V.JPG</td><td>一般缺陷</td><td>小修</td><td>70</td><td>水渍</td><td>DJI_20240930110454_0014_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>71</td><td>水渍</td><td>DJI_20240930110454_0014_V.JPG</td><td>一般缺陷</td><td>小修</td><td>72</td><td>水渍</td><td>DJI_20240930110454_0014_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>73</td><td>水渍</td><td>DJI_20240930110454_0014_V.JPG</td><td>一般缺陷</td><td>小修</td><td>74</td><td>水渍</td><td>DJI_20240930110454_0014_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>75</td><td>水渍</td><td>DJI_20240930110454_0014_V.JPG</td><td>一般缺陷</td><td>小修</td><td>76</td><td>空鼓</td><td>DJI_20240930110454_0014_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>77</td><td>水渍</td><td>DJI_20240930110454_0014_V.JPG</td><td>一般缺陷</td><td>小修</td><td>78</td><td>锈迹</td><td>DJI_20240930110454_0014_V.JPG</td><td>轻微缺陷</td><td>暂不修复</td></tr>
+<tr><td>79</td><td>剥落</td><td>DJI_20240930110454_0014_V.JPG</td><td>严重缺陷</td><td>立即修复</td><td>80</td><td>锈迹</td><td>DJI_20240930111142_0059_V.JPG</td><td>严重缺陷</td><td>立即修复</td></tr>
+<tr><td>81</td><td>裂缝</td><td>DJI_20240930111142_0059_V.JPG</td><td>一般缺陷</td><td>小修</td><td>82</td><td>裂缝</td><td>DJI_20240930111142_0059_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>83</td><td>锈迹</td><td>DJI_20240930111142_0059_V.JPG</td><td>严重缺陷</td><td>大修</td><td>84</td><td>空鼓</td><td>DJI_20240930111609_0084_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>85</td><td>水渍</td><td>DJI_20240930111609_0084_V.JPG</td><td>一般缺陷</td><td>小修</td><td>86</td><td>裂缝</td><td>DJI_20240930111609_0084_V.JPG</td><td>一般缺陷</td><td>小修</td></tr>
+<tr><td>87</td><td>大面积剥落</td><td>DJI_20240930111848_0116_V.JPG</td><td>严重缺陷</td><td>立即修复</td><td>88</td><td>渗漏</td><td>DJI_20240930111848_0116_V.JPG</td><td>严重缺陷</td><td>立即修复</td></tr>
+<tr><td>89</td><td>锈迹</td><td>DJI_20240930111848_0116_V.JPG</td><td>一般缺陷</td><td>小修</td><td>90</td><td>剥落</td><td>DJI_20240930111848_0116_V.JPG</td><td>严重缺陷</td><td>立即修复</td></tr>
+</table>
+</div>
+
+<div class='detail' id="defect-1">
+<div class='detail-title'>缺陷 1 — 大面积剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930101210_0004_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.3321) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.3422) E</td></tr>
+<tr><td>拍摄高度</td><td>43.173 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>大面积剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面大面积破损，可见裸露基层及风化痕迹，判断为大面积剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积174082像素，占比38.3%（通常大面积破损类缺陷不超过8.0%），该缺陷达正常阈值的4.8倍，多区域分布，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930101210_0004_V_0_43_173_0_c5_map.jpg" alt="缺陷1位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 1-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930101210_0004_V_0_43_173_0_c5.jpg" alt="缺陷1特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 1-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101210_0004_V_0_43_173_0_c5_mask.png" alt="缺陷1掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 1-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101210_0004_V_0_43_173_0_c5_vis.jpg" alt="缺陷1叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 1-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-2">
+<div class='detail-title'>缺陷 2 — 大面积剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930101210_0004_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.3321) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.3422) E</td></tr>
+<tr><td>拍摄高度</td><td>43.173 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>大面积剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面大面积破损，可见裸露基层及风化痕迹，判断为大面积剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积176012像素，占比38.3%（通常大面积破损类缺陷不超过8.0%），该缺陷达正常阈值的4.8倍，多区域分布，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930101210_0004_V_0_43_173_1_c5_map.jpg" alt="缺陷2位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 2-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930101210_0004_V_0_43_173_1_c5.jpg" alt="缺陷2特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 2-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101210_0004_V_0_43_173_1_c5_mask.png" alt="缺陷2掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 2-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101210_0004_V_0_43_173_1_c5_vis.jpg" alt="缺陷2叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 2-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-3">
+<div class='detail-title'>缺陷 3 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930101210_0004_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.3321) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.3422) E</td></tr>
+<tr><td>拍摄高度</td><td>43.173 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-1'>轻微缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积900像素，占比0.6%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的0.1倍，呈弥散分布状态，严重程度判断为轻微缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>暂不修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930101210_0004_V_0_43_173_2_c0_map.jpg" alt="缺陷3位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 3-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930101210_0004_V_0_43_173_2_c0.jpg" alt="缺陷3特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 3-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101210_0004_V_0_43_173_2_c0_mask.png" alt="缺陷3掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 3-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101210_0004_V_0_43_173_2_c0_vis.jpg" alt="缺陷3叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 3-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-4">
+<div class='detail-title'>缺陷 4 — 空鼓</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930101342_0023_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.6224) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.0704) E</td></tr>
+<tr><td>拍摄高度</td><td>41.935 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>空鼓</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见空鼓剥离区域，局部伴有饰面层脱落痕迹，判断为空鼓。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积76628像素，占比6.5%（通常空鼓类缺陷不超过3.0%），该缺陷达正常阈值的2.2倍，涉及多个分散区域，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930101342_0023_V_0_41_935_0_c1_map.jpg" alt="缺陷4位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 4-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930101342_0023_V_0_41_935_0_c1.jpg" alt="缺陷4特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 4-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101342_0023_V_0_41_935_0_c1_mask.png" alt="缺陷4掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 4-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101342_0023_V_0_41_935_0_c1_vis.jpg" alt="缺陷4叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 4-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-5">
+<div class='detail-title'>缺陷 5 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930101342_0023_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.6224) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.0704) E</td></tr>
+<tr><td>拍摄高度</td><td>41.935 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积6597像素，占比6.6%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的1.3倍，呈弥散分布状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930101342_0023_V_0_41_935_1_c0_map.jpg" alt="缺陷5位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 5-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930101342_0023_V_0_41_935_1_c0.jpg" alt="缺陷5特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 5-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101342_0023_V_0_41_935_1_c0_mask.png" alt="缺陷5掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 5-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101342_0023_V_0_41_935_1_c0_vis.jpg" alt="缺陷5叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 5-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-6">
+<div class='detail-title'>缺陷 6 — 水渍</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930101342_0023_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.6224) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.0704) E</td></tr>
+<tr><td>拍摄高度</td><td>41.935 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>水渍</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见水渍痕迹，呈片状或条状分布，判断为水渍。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积25607像素，占比9.5%（通常水渍类缺陷不超过1.5%），该缺陷达正常阈值的6.3倍，多区域水渍，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930101342_0023_V_0_41_935_2_c9_map.jpg" alt="缺陷6位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 6-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930101342_0023_V_0_41_935_2_c9.jpg" alt="缺陷6特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 6-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101342_0023_V_0_41_935_2_c9_mask.png" alt="缺陷6掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 6-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101342_0023_V_0_41_935_2_c9_vis.jpg" alt="缺陷6叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 6-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-7">
+<div class='detail-title'>缺陷 7 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930101342_0023_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.6224) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.0704) E</td></tr>
+<tr><td>拍摄高度</td><td>41.935 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积30369像素，占比4.4%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的0.9倍，呈弥散分布状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930101342_0023_V_0_41_935_3_c0_map.jpg" alt="缺陷7位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 7-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930101342_0023_V_0_41_935_3_c0.jpg" alt="缺陷7特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 7-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101342_0023_V_0_41_935_3_c0_mask.png" alt="缺陷7掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 7-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101342_0023_V_0_41_935_3_c0_vis.jpg" alt="缺陷7叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 7-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-8">
+<div class='detail-title'>缺陷 8 — 污染物/附着物</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930101342_0023_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.6224) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.0704) E</td></tr>
+<tr><td>拍摄高度</td><td>41.935 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>污染物/附着物</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙面存在异常色斑或附着物，与周围饰面形成明显色差，判断为污染物/附着物。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积28738像素，占比9.9%（通常污染类缺陷不超过3.0%），该缺陷达正常阈值的3.3倍，多区域分布，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930101342_0023_V_0_41_935_4_c11_map.jpg" alt="缺陷8位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 8-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930101342_0023_V_0_41_935_4_c11.jpg" alt="缺陷8特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 8-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101342_0023_V_0_41_935_4_c11_mask.png" alt="缺陷8掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 8-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101342_0023_V_0_41_935_4_c11_vis.jpg" alt="缺陷8叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 8-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-9">
+<div class='detail-title'>缺陷 9 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930101652_0045_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 18.9875) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.928) E</td></tr>
+<tr><td>拍摄高度</td><td>57.869 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积379像素，占比5.6%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的1.1倍，呈弥散分布状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930101652_0045_V_0_57_869_0_c0_map.jpg" alt="缺陷9位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 9-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930101652_0045_V_0_57_869_0_c0.jpg" alt="缺陷9特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 9-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101652_0045_V_0_57_869_0_c0_mask.png" alt="缺陷9掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 9-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101652_0045_V_0_57_869_0_c0_vis.jpg" alt="缺陷9叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 9-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-10">
+<div class='detail-title'>缺陷 10 — 大面积剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930101652_0045_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 18.9875) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.928) E</td></tr>
+<tr><td>拍摄高度</td><td>57.869 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>大面积剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面大面积破损，可见裸露基层及风化痕迹，判断为大面积剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积32923像素，占比38.7%（通常大面积破损类缺陷不超过8.0%），该缺陷达正常阈值的4.8倍，多区域分布，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930101652_0045_V_0_57_869_1_c5_map.jpg" alt="缺陷10位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 10-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930101652_0045_V_0_57_869_1_c5.jpg" alt="缺陷10特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 10-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101652_0045_V_0_57_869_1_c5_mask.png" alt="缺陷10掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 10-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101652_0045_V_0_57_869_1_c5_vis.jpg" alt="缺陷10叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 10-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-11">
+<div class='detail-title'>缺陷 11 — 锈迹</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930101935_0068_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.1077) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.1229) E</td></tr>
+<tr><td>拍摄高度</td><td>52.757 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>锈迹</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中可见红褐色锈蚀斑点或条纹，金属构件表面氧化特征明显，判断为锈迹。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-1'>轻微缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积0像素，占比0.0%（通常锈迹类缺陷不超过2.0%），该缺陷达正常阈值的0.0倍，呈片状集中分布，平均宽度约0.0px，严重程度判断为轻微缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>暂不修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930101935_0068_V_0_52_757_0_c3_map.jpg" alt="缺陷11位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 11-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930101935_0068_V_0_52_757_0_c3.jpg" alt="缺陷11特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 11-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101935_0068_V_0_52_757_0_c3_mask.png" alt="缺陷11掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 11-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101935_0068_V_0_52_757_0_c3_vis.jpg" alt="缺陷11叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 11-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-12">
+<div class='detail-title'>缺陷 12 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930101935_0068_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.1077) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.1229) E</td></tr>
+<tr><td>拍摄高度</td><td>52.757 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积6120像素，占比5.0%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的1.0倍，呈弥散分布状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930101935_0068_V_0_52_757_1_c0_map.jpg" alt="缺陷12位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 12-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930101935_0068_V_0_52_757_1_c0.jpg" alt="缺陷12特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 12-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101935_0068_V_0_52_757_1_c0_mask.png" alt="缺陷12掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 12-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930101935_0068_V_0_52_757_1_c0_vis.jpg" alt="缺陷12叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 12-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-13">
+<div class='detail-title'>缺陷 13 — 锈迹</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102216_0086_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 18.8451) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.7972) E</td></tr>
+<tr><td>拍摄高度</td><td>15.235 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>锈迹</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中可见红褐色锈蚀斑点或条纹，金属构件表面氧化特征明显，判断为锈迹。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积246像素，占比9.9%（通常锈迹类缺陷不超过2.0%），该缺陷达正常阈值的5.0倍，呈片状集中分布，平均宽度约5.1px，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102216_0086_V_0_15_235_0_c3_map.jpg" alt="缺陷13位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 13-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102216_0086_V_0_15_235_0_c3.jpg" alt="缺陷13特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 13-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102216_0086_V_0_15_235_0_c3_mask.png" alt="缺陷13掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 13-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102216_0086_V_0_15_235_0_c3_vis.jpg" alt="缺陷13叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 13-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-14">
+<div class='detail-title'>缺陷 14 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102216_0086_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 18.8451) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.7972) E</td></tr>
+<tr><td>拍摄高度</td><td>15.235 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积1174像素，占比7.2%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的1.4倍，呈弥散分布状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102216_0086_V_1_15_235_0_c0_map.jpg" alt="缺陷14位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 14-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102216_0086_V_1_15_235_0_c0.jpg" alt="缺陷14特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 14-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102216_0086_V_1_15_235_0_c0_mask.png" alt="缺陷14掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 14-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102216_0086_V_1_15_235_0_c0_vis.jpg" alt="缺陷14叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 14-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-15">
+<div class='detail-title'>缺陷 15 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102411_0093_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.0943) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.8724) E</td></tr>
+<tr><td>拍摄高度</td><td>41.519 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积642像素，占比4.5%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的0.9倍，呈弥散分布状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102411_0093_V_0_41_519_0_c0_map.jpg" alt="缺陷15位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 15-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102411_0093_V_0_41_519_0_c0.jpg" alt="缺陷15特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 15-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102411_0093_V_0_41_519_0_c0_mask.png" alt="缺陷15掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 15-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102411_0093_V_0_41_519_0_c0_vis.jpg" alt="缺陷15叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 15-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-16">
+<div class='detail-title'>缺陷 16 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102411_0093_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.0943) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.8724) E</td></tr>
+<tr><td>拍摄高度</td><td>41.519 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积378像素，占比6.3%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的1.3倍，呈弥散分布状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102411_0093_V_0_41_519_1_c0_map.jpg" alt="缺陷16位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 16-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102411_0093_V_0_41_519_1_c0.jpg" alt="缺陷16特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 16-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102411_0093_V_0_41_519_1_c0_mask.png" alt="缺陷16掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 16-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102411_0093_V_0_41_519_1_c0_vis.jpg" alt="缺陷16叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 16-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-17">
+<div class='detail-title'>缺陷 17 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102411_0093_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.0943) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.8724) E</td></tr>
+<tr><td>拍摄高度</td><td>41.519 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积308像素，占比4.2%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的0.8倍，呈弥散分布状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102411_0093_V_0_41_519_2_c0_map.jpg" alt="缺陷17位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 17-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102411_0093_V_0_41_519_2_c0.jpg" alt="缺陷17特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 17-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102411_0093_V_0_41_519_2_c0_mask.png" alt="缺陷17掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 17-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102411_0093_V_0_41_519_2_c0_vis.jpg" alt="缺陷17叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 17-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-18">
+<div class='detail-title'>缺陷 18 — 空鼓</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102411_0093_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.0943) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.8724) E</td></tr>
+<tr><td>拍摄高度</td><td>41.519 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>空鼓</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见空鼓剥离区域，局部伴有饰面层脱落痕迹，判断为空鼓。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-1'>轻微缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积333像素，占比2.3%（通常空鼓类缺陷不超过3.0%），该缺陷达正常阈值的0.8倍，涉及多个分散区域，严重程度判断为轻微缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>暂不修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102411_0093_V_0_41_519_3_c1_map.jpg" alt="缺陷18位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 18-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102411_0093_V_0_41_519_3_c1.jpg" alt="缺陷18特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 18-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102411_0093_V_0_41_519_3_c1_mask.png" alt="缺陷18掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 18-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102411_0093_V_0_41_519_3_c1_vis.jpg" alt="缺陷18叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 18-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-19">
+<div class='detail-title'>缺陷 19 — 锈迹</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102411_0093_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.0943) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.8724) E</td></tr>
+<tr><td>拍摄高度</td><td>41.519 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>锈迹</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中可见红褐色锈蚀斑点或条纹，金属构件表面氧化特征明显，判断为锈迹。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积4936像素，占比37.4%（通常锈迹类缺陷不超过2.0%），该缺陷达正常阈值的18.7倍，呈点状分散分布，平均宽度约6.2px，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102411_0093_V_1_41_519_0_c3_map.jpg" alt="缺陷19位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 19-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102411_0093_V_1_41_519_0_c3.jpg" alt="缺陷19特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 19-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102411_0093_V_1_41_519_0_c3_mask.png" alt="缺陷19掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 19-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102411_0093_V_1_41_519_0_c3_vis.jpg" alt="缺陷19叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 19-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-20">
+<div class='detail-title'>缺陷 20 — 剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102411_0093_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.0943) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.8724) E</td></tr>
+<tr><td>拍摄高度</td><td>41.519 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面出现块状或片状脱落区域，基层暴露，判断为剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积5306像素，占比38.6%（通常剥落类缺陷不超过2.0%），该缺陷达正常阈值的19.3倍，脱落深度需现场敲击确认，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102411_0093_V_1_41_519_1_c2_map.jpg" alt="缺陷20位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 20-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102411_0093_V_1_41_519_1_c2.jpg" alt="缺陷20特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 20-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102411_0093_V_1_41_519_1_c2_mask.png" alt="缺陷20掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 20-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102411_0093_V_1_41_519_1_c2_vis.jpg" alt="缺陷20叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 20-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-21">
+<div class='detail-title'>缺陷 21 — 锈迹</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102411_0093_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.0943) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.8724) E</td></tr>
+<tr><td>拍摄高度</td><td>41.519 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>锈迹</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中可见红褐色锈蚀斑点或条纹，金属构件表面氧化特征明显，判断为锈迹。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-1'>轻微缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积177像素，占比1.2%（通常锈迹类缺陷不超过2.0%），该缺陷达正常阈值的0.6倍，呈片状集中分布，平均宽度约3.7px，严重程度判断为轻微缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>暂不修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102411_0093_V_1_41_519_2_c3_map.jpg" alt="缺陷21位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 21-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102411_0093_V_1_41_519_2_c3.jpg" alt="缺陷21特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 21-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102411_0093_V_1_41_519_2_c3_mask.png" alt="缺陷21掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 21-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102411_0093_V_1_41_519_2_c3_vis.jpg" alt="缺陷21叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 21-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-22">
+<div class='detail-title'>缺陷 22 — 空鼓</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102411_0093_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.0943) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.8724) E</td></tr>
+<tr><td>拍摄高度</td><td>41.519 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>空鼓</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见空鼓剥离区域，局部伴有饰面层脱落痕迹，判断为空鼓。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积2918像素，占比5.8%（通常空鼓类缺陷不超过3.0%），该缺陷达正常阈值的1.9倍，涉及多个分散区域，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102411_0093_V_1_41_519_3_c1_map.jpg" alt="缺陷22位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 22-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102411_0093_V_1_41_519_3_c1.jpg" alt="缺陷22特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 22-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102411_0093_V_1_41_519_3_c1_mask.png" alt="缺陷22掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 22-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102411_0093_V_1_41_519_3_c1_vis.jpg" alt="缺陷22叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 22-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-23">
+<div class='detail-title'>缺陷 23 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102411_0093_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.0943) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.8724) E</td></tr>
+<tr><td>拍摄高度</td><td>41.519 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积376像素，占比5.8%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的1.2倍，呈弥散分布状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102411_0093_V_2_41_519_0_c0_map.jpg" alt="缺陷23位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 23-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102411_0093_V_2_41_519_0_c0.jpg" alt="缺陷23特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 23-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102411_0093_V_2_41_519_0_c0_mask.png" alt="缺陷23掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 23-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102411_0093_V_2_41_519_0_c0_vis.jpg" alt="缺陷23叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 23-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-24">
+<div class='detail-title'>缺陷 24 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102420_0094_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.1139) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.8933) E</td></tr>
+<tr><td>拍摄高度</td><td>40.845 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积222像素，占比5.1%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的1.0倍，呈弥散分布状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102420_0094_V_0_40_845_0_c0_map.jpg" alt="缺陷24位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 24-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102420_0094_V_0_40_845_0_c0.jpg" alt="缺陷24特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 24-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102420_0094_V_0_40_845_0_c0_mask.png" alt="缺陷24掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 24-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102420_0094_V_0_40_845_0_c0_vis.jpg" alt="缺陷24叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 24-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-25">
+<div class='detail-title'>缺陷 25 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102420_0094_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.1139) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.8933) E</td></tr>
+<tr><td>拍摄高度</td><td>40.845 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积191像素，占比3.9%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的0.8倍，呈弥散分布状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102420_0094_V_0_40_845_1_c0_map.jpg" alt="缺陷25位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 25-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102420_0094_V_0_40_845_1_c0.jpg" alt="缺陷25特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 25-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102420_0094_V_0_40_845_1_c0_mask.png" alt="缺陷25掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 25-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102420_0094_V_0_40_845_1_c0_vis.jpg" alt="缺陷25叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 25-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-26">
+<div class='detail-title'>缺陷 26 — 空鼓</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102420_0094_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.1139) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.8933) E</td></tr>
+<tr><td>拍摄高度</td><td>40.845 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>空鼓</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见空鼓剥离区域，局部伴有饰面层脱落痕迹，判断为空鼓。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积2282像素，占比5.9%（通常空鼓类缺陷不超过3.0%），该缺陷达正常阈值的2.0倍，涉及多个分散区域，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102420_0094_V_1_40_845_0_c1_map.jpg" alt="缺陷26位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 26-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102420_0094_V_1_40_845_0_c1.jpg" alt="缺陷26特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 26-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102420_0094_V_1_40_845_0_c1_mask.png" alt="缺陷26掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 26-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102420_0094_V_1_40_845_0_c1_vis.jpg" alt="缺陷26叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 26-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-27">
+<div class='detail-title'>缺陷 27 — 大面积剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102420_0094_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.1139) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.8933) E</td></tr>
+<tr><td>拍摄高度</td><td>40.845 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>大面积剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面大面积破损，可见裸露基层及风化痕迹，判断为大面积剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积11650像素，占比38.0%（通常大面积破损类缺陷不超过8.0%），该缺陷达正常阈值的4.7倍，多区域分布，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102420_0094_V_1_40_845_1_c5_map.jpg" alt="缺陷27位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 27-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102420_0094_V_1_40_845_1_c5.jpg" alt="缺陷27特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 27-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102420_0094_V_1_40_845_1_c5_mask.png" alt="缺陷27掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 27-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102420_0094_V_1_40_845_1_c5_vis.jpg" alt="缺陷27叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 27-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-28">
+<div class='detail-title'>缺陷 28 — 剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102420_0094_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.1139) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.8933) E</td></tr>
+<tr><td>拍摄高度</td><td>40.845 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面出现块状或片状脱落区域，基层暴露，判断为剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积4702像素，占比38.3%（通常剥落类缺陷不超过2.0%），该缺陷达正常阈值的19.1倍，脱落深度需现场敲击确认，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102420_0094_V_1_40_845_2_c2_map.jpg" alt="缺陷28位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 28-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102420_0094_V_1_40_845_2_c2.jpg" alt="缺陷28特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 28-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102420_0094_V_1_40_845_2_c2_mask.png" alt="缺陷28掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 28-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102420_0094_V_1_40_845_2_c2_vis.jpg" alt="缺陷28叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 28-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-29">
+<div class='detail-title'>缺陷 29 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102420_0094_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.1139) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.8933) E</td></tr>
+<tr><td>拍摄高度</td><td>40.845 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-1'>轻微缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积117像素，占比2.4%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的0.5倍，呈局部集中状态，严重程度判断为轻微缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>暂不修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102420_0094_V_1_40_845_3_c0_map.jpg" alt="缺陷29位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 29-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102420_0094_V_1_40_845_3_c0.jpg" alt="缺陷29特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 29-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102420_0094_V_1_40_845_3_c0_mask.png" alt="缺陷29掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 29-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102420_0094_V_1_40_845_3_c0_vis.jpg" alt="缺陷29叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 29-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-30">
+<div class='detail-title'>缺陷 30 — 锈迹</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102420_0094_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.1139) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.8933) E</td></tr>
+<tr><td>拍摄高度</td><td>40.845 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>锈迹</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中可见红褐色锈蚀斑点或条纹，金属构件表面氧化特征明显，判断为锈迹。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积497像素，占比3.5%（通常锈迹类缺陷不超过2.0%），该缺陷达正常阈值的1.8倍，呈片状集中分布，平均宽度约4.4px，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102420_0094_V_1_40_845_4_c3_map.jpg" alt="缺陷30位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 30-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102420_0094_V_1_40_845_4_c3.jpg" alt="缺陷30特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 30-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102420_0094_V_1_40_845_4_c3_mask.png" alt="缺陷30掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 30-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102420_0094_V_1_40_845_4_c3_vis.jpg" alt="缺陷30叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 30-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-31">
+<div class='detail-title'>缺陷 31 — 大面积剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102441_0101_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.0574) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.9123) E</td></tr>
+<tr><td>拍摄高度</td><td>30.793 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>大面积剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面大面积破损，可见裸露基层及风化痕迹，判断为大面积剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积29844像素，占比38.7%（通常大面积破损类缺陷不超过8.0%），该缺陷达正常阈值的4.8倍，多区域分布，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102441_0101_V_0_30_793_0_c5_map.jpg" alt="缺陷31位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 31-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102441_0101_V_0_30_793_0_c5.jpg" alt="缺陷31特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 31-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102441_0101_V_0_30_793_0_c5_mask.png" alt="缺陷31掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 31-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102441_0101_V_0_30_793_0_c5_vis.jpg" alt="缺陷31叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 31-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-32">
+<div class='detail-title'>缺陷 32 — 剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102441_0101_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.0574) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.9123) E</td></tr>
+<tr><td>拍摄高度</td><td>30.793 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面出现块状或片状脱落区域，基层暴露，判断为剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积13819像素，占比36.8%（通常剥落类缺陷不超过2.0%），该缺陷达正常阈值的18.4倍，脱落深度需现场敲击确认，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102441_0101_V_0_30_793_1_c2_map.jpg" alt="缺陷32位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 32-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102441_0101_V_0_30_793_1_c2.jpg" alt="缺陷32特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 32-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102441_0101_V_0_30_793_1_c2_mask.png" alt="缺陷32掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 32-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102441_0101_V_0_30_793_1_c2_vis.jpg" alt="缺陷32叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 32-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-33">
+<div class='detail-title'>缺陷 33 — 剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102441_0101_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.0574) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.9123) E</td></tr>
+<tr><td>拍摄高度</td><td>30.793 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面出现块状或片状脱落区域，基层暴露，判断为剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积419像素，占比37.0%（通常剥落类缺陷不超过2.0%），该缺陷达正常阈值的18.5倍，脱落深度需现场敲击确认，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102441_0101_V_0_30_793_2_c2_map.jpg" alt="缺陷33位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 33-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102441_0101_V_0_30_793_2_c2.jpg" alt="缺陷33特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 33-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102441_0101_V_0_30_793_2_c2_mask.png" alt="缺陷33掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 33-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102441_0101_V_0_30_793_2_c2_vis.jpg" alt="缺陷33叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 33-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-34">
+<div class='detail-title'>缺陷 34 — 空鼓</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102441_0101_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.0574) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.9123) E</td></tr>
+<tr><td>拍摄高度</td><td>30.793 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>空鼓</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见空鼓剥离区域，局部伴有饰面层脱落痕迹，判断为空鼓。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积108像素，占比4.4%（通常空鼓类缺陷不超过3.0%），该缺陷达正常阈值的1.5倍，涉及多个分散区域，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102441_0101_V_1_30_793_0_c1_map.jpg" alt="缺陷34位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 34-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102441_0101_V_1_30_793_0_c1.jpg" alt="缺陷34特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 34-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102441_0101_V_1_30_793_0_c1_mask.png" alt="缺陷34掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 34-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102441_0101_V_1_30_793_0_c1_vis.jpg" alt="缺陷34叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 34-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-35">
+<div class='detail-title'>缺陷 35 — 锈迹</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102441_0101_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.0574) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.9123) E</td></tr>
+<tr><td>拍摄高度</td><td>30.793 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>锈迹</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中可见红褐色锈蚀斑点或条纹，金属构件表面氧化特征明显，判断为锈迹。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积1136像素，占比29.1%（通常锈迹类缺陷不超过2.0%），该缺陷达正常阈值的14.6倍，呈片状集中分布，平均宽度约4.4px，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>大修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102441_0101_V_2_30_793_0_c3_map.jpg" alt="缺陷35位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 35-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102441_0101_V_2_30_793_0_c3.jpg" alt="缺陷35特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 35-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102441_0101_V_2_30_793_0_c3_mask.png" alt="缺陷35掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 35-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102441_0101_V_2_30_793_0_c3_vis.jpg" alt="缺陷35叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 35-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-36">
+<div class='detail-title'>缺陷 36 — 大面积剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102441_0101_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.0574) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.9123) E</td></tr>
+<tr><td>拍摄高度</td><td>30.793 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>大面积剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面大面积破损，可见裸露基层及风化痕迹，判断为大面积剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积3476像素，占比34.7%（通常大面积破损类缺陷不超过8.0%），该缺陷达正常阈值的4.3倍，多区域分布，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102441_0101_V_2_30_793_1_c5_map.jpg" alt="缺陷36位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 36-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102441_0101_V_2_30_793_1_c5.jpg" alt="缺陷36特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 36-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102441_0101_V_2_30_793_1_c5_mask.png" alt="缺陷36掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 36-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102441_0101_V_2_30_793_1_c5_vis.jpg" alt="缺陷36叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 36-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-37">
+<div class='detail-title'>缺陷 37 — 大面积剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102443_0102_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.0564) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.9026) E</td></tr>
+<tr><td>拍摄高度</td><td>29.672 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>大面积剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面大面积破损，可见裸露基层及风化痕迹，判断为大面积剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积29250像素，占比39.5%（通常大面积破损类缺陷不超过8.0%），该缺陷达正常阈值的4.9倍，多区域分布，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102443_0102_V_0_29_672_0_c5_map.jpg" alt="缺陷37位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 37-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102443_0102_V_0_29_672_0_c5.jpg" alt="缺陷37特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 37-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102443_0102_V_0_29_672_0_c5_mask.png" alt="缺陷37掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 37-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102443_0102_V_0_29_672_0_c5_vis.jpg" alt="缺陷37叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 37-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-38">
+<div class='detail-title'>缺陷 38 — 剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102443_0102_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.0564) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.9026) E</td></tr>
+<tr><td>拍摄高度</td><td>29.672 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面出现块状或片状脱落区域，基层暴露，判断为剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积12657像素，占比33.7%（通常剥落类缺陷不超过2.0%），该缺陷达正常阈值的16.9倍，脱落深度需现场敲击确认，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102443_0102_V_0_29_672_1_c2_map.jpg" alt="缺陷38位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 38-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102443_0102_V_0_29_672_1_c2.jpg" alt="缺陷38特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 38-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102443_0102_V_0_29_672_1_c2_mask.png" alt="缺陷38掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 38-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102443_0102_V_0_29_672_1_c2_vis.jpg" alt="缺陷38叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 38-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-39">
+<div class='detail-title'>缺陷 39 — 剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102443_0102_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.0564) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.9026) E</td></tr>
+<tr><td>拍摄高度</td><td>29.672 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面出现块状或片状脱落区域，基层暴露，判断为剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积414像素，占比37.4%（通常剥落类缺陷不超过2.0%），该缺陷达正常阈值的18.7倍，脱落深度需现场敲击确认，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102443_0102_V_0_29_672_2_c2_map.jpg" alt="缺陷39位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 39-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102443_0102_V_0_29_672_2_c2.jpg" alt="缺陷39特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 39-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102443_0102_V_0_29_672_2_c2_mask.png" alt="缺陷39掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 39-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102443_0102_V_0_29_672_2_c2_vis.jpg" alt="缺陷39叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 39-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-40">
+<div class='detail-title'>缺陷 40 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102443_0102_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.0564) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.9026) E</td></tr>
+<tr><td>拍摄高度</td><td>29.672 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积129像素，占比4.5%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的0.9倍，呈局部集中状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102443_0102_V_1_29_672_0_c0_map.jpg" alt="缺陷40位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 40-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102443_0102_V_1_29_672_0_c0.jpg" alt="缺陷40特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 40-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102443_0102_V_1_29_672_0_c0_mask.png" alt="缺陷40掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 40-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102443_0102_V_1_29_672_0_c0_vis.jpg" alt="缺陷40叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 40-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-41">
+<div class='detail-title'>缺陷 41 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102443_0102_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.0564) N</td><td>GPS经度</td><td>(114.0, 8.0, 49.9026) E</td></tr>
+<tr><td>拍摄高度</td><td>29.672 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积129像素，占比6.9%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的1.4倍，呈局部集中状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102443_0102_V_1_29_672_1_c0_map.jpg" alt="缺陷41位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 41-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102443_0102_V_1_29_672_1_c0.jpg" alt="缺陷41特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 41-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102443_0102_V_1_29_672_1_c0_mask.png" alt="缺陷41掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 41-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102443_0102_V_1_29_672_1_c0_vis.jpg" alt="缺陷41叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 41-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-42">
+<div class='detail-title'>缺陷 42 — 锈迹</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102722_0116_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.1502) N</td><td>GPS经度</td><td>(114.0, 8.0, 50.0141) E</td></tr>
+<tr><td>拍摄高度</td><td>30.669 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>锈迹</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中可见红褐色锈蚀斑点或条纹，金属构件表面氧化特征明显，判断为锈迹。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-1'>轻微缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积0像素，占比0.0%（通常锈迹类缺陷不超过2.0%），该缺陷达正常阈值的0.0倍，呈片状集中分布，平均宽度约0.0px，严重程度判断为轻微缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>暂不修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102722_0116_V_0_30_669_0_c3_map.jpg" alt="缺陷42位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 42-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102722_0116_V_0_30_669_0_c3.jpg" alt="缺陷42特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 42-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102722_0116_V_0_30_669_0_c3_mask.png" alt="缺陷42掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 42-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102722_0116_V_0_30_669_0_c3_vis.jpg" alt="缺陷42叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 42-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-43">
+<div class='detail-title'>缺陷 43 — 剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102722_0116_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.1502) N</td><td>GPS经度</td><td>(114.0, 8.0, 50.0141) E</td></tr>
+<tr><td>拍摄高度</td><td>30.669 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面出现块状或片状脱落区域，基层暴露，判断为剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积3427像素，占比34.4%（通常剥落类缺陷不超过2.0%），该缺陷达正常阈值的17.2倍，脱落深度需现场敲击确认，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102722_0116_V_1_30_669_0_c2_map.jpg" alt="缺陷43位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 43-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102722_0116_V_1_30_669_0_c2.jpg" alt="缺陷43特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 43-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102722_0116_V_1_30_669_0_c2_mask.png" alt="缺陷43掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 43-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102722_0116_V_1_30_669_0_c2_vis.jpg" alt="缺陷43叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 43-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-44">
+<div class='detail-title'>缺陷 44 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102722_0116_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.1502) N</td><td>GPS经度</td><td>(114.0, 8.0, 50.0141) E</td></tr>
+<tr><td>拍摄高度</td><td>30.669 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积3760像素，占比6.7%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的1.3倍，呈弥散分布状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102722_0116_V_1_30_669_1_c0_map.jpg" alt="缺陷44位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 44-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102722_0116_V_1_30_669_1_c0.jpg" alt="缺陷44特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 44-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102722_0116_V_1_30_669_1_c0_mask.png" alt="缺陷44掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 44-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102722_0116_V_1_30_669_1_c0_vis.jpg" alt="缺陷44叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 44-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-45">
+<div class='detail-title'>缺陷 45 — 大面积剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102722_0116_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.1502) N</td><td>GPS经度</td><td>(114.0, 8.0, 50.0141) E</td></tr>
+<tr><td>拍摄高度</td><td>30.669 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>大面积剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面大面积破损，可见裸露基层及风化痕迹，判断为大面积剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积8833像素，占比37.2%（通常大面积破损类缺陷不超过8.0%），该缺陷达正常阈值的4.7倍，多区域分布，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102722_0116_V_1_30_669_2_c5_map.jpg" alt="缺陷45位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 45-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102722_0116_V_1_30_669_2_c5.jpg" alt="缺陷45特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 45-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102722_0116_V_1_30_669_2_c5_mask.png" alt="缺陷45掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 45-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102722_0116_V_1_30_669_2_c5_vis.jpg" alt="缺陷45叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 45-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-46">
+<div class='detail-title'>缺陷 46 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102722_0116_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.1502) N</td><td>GPS经度</td><td>(114.0, 8.0, 50.0141) E</td></tr>
+<tr><td>拍摄高度</td><td>30.669 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积496像素，占比3.7%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的0.7倍，呈弥散分布状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102722_0116_V_2_30_669_0_c0_map.jpg" alt="缺陷46位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 46-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102722_0116_V_2_30_669_0_c0.jpg" alt="缺陷46特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 46-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102722_0116_V_2_30_669_0_c0_mask.png" alt="缺陷46掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 46-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102722_0116_V_2_30_669_0_c0_vis.jpg" alt="缺陷46叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 46-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-47">
+<div class='detail-title'>缺陷 47 — 锈迹</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102943_0128_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.2067) N</td><td>GPS经度</td><td>(114.0, 8.0, 50.1919) E</td></tr>
+<tr><td>拍摄高度</td><td>37.727 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>锈迹</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中可见红褐色锈蚀斑点或条纹，金属构件表面氧化特征明显，判断为锈迹。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积34242像素，占比50.3%（通常锈迹类缺陷不超过2.0%），该缺陷达正常阈值的25.2倍，呈点状分散分布，平均宽度约8.5px，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102943_0128_V_0_37_727_0_c3_map.jpg" alt="缺陷47位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 47-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102943_0128_V_0_37_727_0_c3.jpg" alt="缺陷47特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 47-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102943_0128_V_0_37_727_0_c3_mask.png" alt="缺陷47掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 47-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102943_0128_V_0_37_727_0_c3_vis.jpg" alt="缺陷47叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 47-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-48">
+<div class='detail-title'>缺陷 48 — 锈迹</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102943_0128_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.2067) N</td><td>GPS经度</td><td>(114.0, 8.0, 50.1919) E</td></tr>
+<tr><td>拍摄高度</td><td>37.727 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>锈迹</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中可见红褐色锈蚀斑点或条纹，金属构件表面氧化特征明显，判断为锈迹。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积18099像素，占比31.2%（通常锈迹类缺陷不超过2.0%），该缺陷达正常阈值的15.6倍，呈点状分散分布，平均宽度约7.1px，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102943_0128_V_0_37_727_1_c3_map.jpg" alt="缺陷48位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 48-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102943_0128_V_0_37_727_1_c3.jpg" alt="缺陷48特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 48-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102943_0128_V_0_37_727_1_c3_mask.png" alt="缺陷48掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 48-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102943_0128_V_0_37_727_1_c3_vis.jpg" alt="缺陷48叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 48-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-49">
+<div class='detail-title'>缺陷 49 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102943_0128_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.2067) N</td><td>GPS经度</td><td>(114.0, 8.0, 50.1919) E</td></tr>
+<tr><td>拍摄高度</td><td>37.727 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积149像素，占比5.2%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的1.0倍，呈局部集中状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102943_0128_V_0_37_727_2_c0_map.jpg" alt="缺陷49位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 49-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102943_0128_V_0_37_727_2_c0.jpg" alt="缺陷49特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 49-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102943_0128_V_0_37_727_2_c0_mask.png" alt="缺陷49掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 49-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102943_0128_V_0_37_727_2_c0_vis.jpg" alt="缺陷49叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 49-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-50">
+<div class='detail-title'>缺陷 50 — 锈迹</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930102943_0128_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.2067) N</td><td>GPS经度</td><td>(114.0, 8.0, 50.1919) E</td></tr>
+<tr><td>拍摄高度</td><td>37.727 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>锈迹</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中可见红褐色锈蚀斑点或条纹，金属构件表面氧化特征明显，判断为锈迹。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积34994像素，占比33.3%（通常锈迹类缺陷不超过2.0%），该缺陷达正常阈值的16.6倍，呈点状分散分布，平均宽度约8.2px，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930102943_0128_V_1_37_727_0_c3_map.jpg" alt="缺陷50位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 50-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930102943_0128_V_1_37_727_0_c3.jpg" alt="缺陷50特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 50-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102943_0128_V_1_37_727_0_c3_mask.png" alt="缺陷50掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 50-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930102943_0128_V_1_37_727_0_c3_vis.jpg" alt="缺陷50叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 50-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-51">
+<div class='detail-title'>缺陷 51 — 大面积剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930103947_0037_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.9848) N</td><td>GPS经度</td><td>(114.0, 8.0, 50.2744) E</td></tr>
+<tr><td>拍摄高度</td><td>35.045 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>大面积剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面大面积破损，可见裸露基层及风化痕迹，判断为大面积剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积16897像素，占比37.5%（通常大面积破损类缺陷不超过8.0%），该缺陷达正常阈值的4.7倍，多区域分布，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930103947_0037_V_0_35_045_0_c5_map.jpg" alt="缺陷51位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 51-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930103947_0037_V_0_35_045_0_c5.jpg" alt="缺陷51特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 51-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930103947_0037_V_0_35_045_0_c5_mask.png" alt="缺陷51掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 51-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930103947_0037_V_0_35_045_0_c5_vis.jpg" alt="缺陷51叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 51-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-52">
+<div class='detail-title'>缺陷 52 — 锈迹</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930103947_0037_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.9848) N</td><td>GPS经度</td><td>(114.0, 8.0, 50.2744) E</td></tr>
+<tr><td>拍摄高度</td><td>35.045 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>锈迹</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中可见红褐色锈蚀斑点或条纹，金属构件表面氧化特征明显，判断为锈迹。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积472像素，占比14.9%（通常锈迹类缺陷不超过2.0%），该缺陷达正常阈值的7.4倍，呈片状集中分布，平均宽度约4.3px，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930103947_0037_V_0_35_045_1_c3_map.jpg" alt="缺陷52位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 52-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930103947_0037_V_0_35_045_1_c3.jpg" alt="缺陷52特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 52-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930103947_0037_V_0_35_045_1_c3_mask.png" alt="缺陷52掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 52-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930103947_0037_V_0_35_045_1_c3_vis.jpg" alt="缺陷52叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 52-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-53">
+<div class='detail-title'>缺陷 53 — 剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930103947_0037_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.9848) N</td><td>GPS经度</td><td>(114.0, 8.0, 50.2744) E</td></tr>
+<tr><td>拍摄高度</td><td>35.045 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面出现块状或片状脱落区域，基层暴露，判断为剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积3832像素，占比36.7%（通常剥落类缺陷不超过2.0%），该缺陷达正常阈值的18.4倍，脱落深度需现场敲击确认，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930103947_0037_V_1_35_045_0_c2_map.jpg" alt="缺陷53位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 53-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930103947_0037_V_1_35_045_0_c2.jpg" alt="缺陷53特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 53-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930103947_0037_V_1_35_045_0_c2_mask.png" alt="缺陷53掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 53-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930103947_0037_V_1_35_045_0_c2_vis.jpg" alt="缺陷53叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 53-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-54">
+<div class='detail-title'>缺陷 54 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930103947_0037_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 19.9848) N</td><td>GPS经度</td><td>(114.0, 8.0, 50.2744) E</td></tr>
+<tr><td>拍摄高度</td><td>35.045 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积317像素，占比5.1%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的1.0倍，呈弥散分布状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930103947_0037_V_1_35_045_1_c0_map.jpg" alt="缺陷54位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 54-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930103947_0037_V_1_35_045_1_c0.jpg" alt="缺陷54特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 54-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930103947_0037_V_1_35_045_1_c0_mask.png" alt="缺陷54掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 54-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930103947_0037_V_1_35_045_1_c0_vis.jpg" alt="缺陷54叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 54-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-55">
+<div class='detail-title'>缺陷 55 — 大面积剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930104006_0043_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 20.0056) N</td><td>GPS经度</td><td>(114.0, 8.0, 50.3105) E</td></tr>
+<tr><td>拍摄高度</td><td>29.349 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>大面积剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面大面积破损，可见裸露基层及风化痕迹，判断为大面积剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积6881像素，占比37.0%（通常大面积破损类缺陷不超过8.0%），该缺陷达正常阈值的4.6倍，多区域分布，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930104006_0043_V_0_29_349_0_c5_map.jpg" alt="缺陷55位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 55-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930104006_0043_V_0_29_349_0_c5.jpg" alt="缺陷55特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 55-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930104006_0043_V_0_29_349_0_c5_mask.png" alt="缺陷55掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 55-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930104006_0043_V_0_29_349_0_c5_vis.jpg" alt="缺陷55叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 55-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-56">
+<div class='detail-title'>缺陷 56 — 锈迹</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930104006_0043_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 20.0056) N</td><td>GPS经度</td><td>(114.0, 8.0, 50.3105) E</td></tr>
+<tr><td>拍摄高度</td><td>29.349 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>锈迹</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中可见红褐色锈蚀斑点或条纹，金属构件表面氧化特征明显，判断为锈迹。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积572像素，占比25.5%（通常锈迹类缺陷不超过2.0%），该缺陷达正常阈值的12.8倍，呈片状集中分布，平均宽度约6.1px，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>大修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930104006_0043_V_0_29_349_1_c3_map.jpg" alt="缺陷56位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 56-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930104006_0043_V_0_29_349_1_c3.jpg" alt="缺陷56特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 56-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930104006_0043_V_0_29_349_1_c3_mask.png" alt="缺陷56掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 56-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930104006_0043_V_0_29_349_1_c3_vis.jpg" alt="缺陷56叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 56-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-57">
+<div class='detail-title'>缺陷 57 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930104006_0043_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 20.0056) N</td><td>GPS经度</td><td>(114.0, 8.0, 50.3105) E</td></tr>
+<tr><td>拍摄高度</td><td>29.349 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积99像素，占比4.5%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的0.9倍，呈弥散分布状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930104006_0043_V_1_29_349_0_c0_map.jpg" alt="缺陷57位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 57-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930104006_0043_V_1_29_349_0_c0.jpg" alt="缺陷57特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 57-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930104006_0043_V_1_29_349_0_c0_mask.png" alt="缺陷57掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 57-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930104006_0043_V_1_29_349_0_c0_vis.jpg" alt="缺陷57叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 57-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-58">
+<div class='detail-title'>缺陷 58 — 剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930104006_0043_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 20.0056) N</td><td>GPS经度</td><td>(114.0, 8.0, 50.3105) E</td></tr>
+<tr><td>拍摄高度</td><td>29.349 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面出现块状或片状脱落区域，基层暴露，判断为剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积1130像素，占比37.2%（通常剥落类缺陷不超过2.0%），该缺陷达正常阈值的18.6倍，脱落深度需现场敲击确认，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930104006_0043_V_2_29_349_0_c2_map.jpg" alt="缺陷58位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 58-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930104006_0043_V_2_29_349_0_c2.jpg" alt="缺陷58特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 58-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930104006_0043_V_2_29_349_0_c2_mask.png" alt="缺陷58掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 58-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930104006_0043_V_2_29_349_0_c2_vis.jpg" alt="缺陷58叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 58-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-59">
+<div class='detail-title'>缺陷 59 — 大面积剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930104257_0062_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 20.3098) N</td><td>GPS经度</td><td>(114.0, 8.0, 50.5469) E</td></tr>
+<tr><td>拍摄高度</td><td>88.147 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>大面积剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面大面积破损，可见裸露基层及风化痕迹，判断为大面积剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积9848像素，占比37.6%（通常大面积破损类缺陷不超过8.0%），该缺陷达正常阈值的4.7倍，多区域分布，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930104257_0062_V_0_88_147_0_c5_map.jpg" alt="缺陷59位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 59-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930104257_0062_V_0_88_147_0_c5.jpg" alt="缺陷59特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 59-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930104257_0062_V_0_88_147_0_c5_mask.png" alt="缺陷59掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 59-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930104257_0062_V_0_88_147_0_c5_vis.jpg" alt="缺陷59叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 59-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-60">
+<div class='detail-title'>缺陷 60 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930104257_0062_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 20.3098) N</td><td>GPS经度</td><td>(114.0, 8.0, 50.5469) E</td></tr>
+<tr><td>拍摄高度</td><td>88.147 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积78像素，占比3.9%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的0.8倍，呈局部集中状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930104257_0062_V_1_88_147_0_c0_map.jpg" alt="缺陷60位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 60-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930104257_0062_V_1_88_147_0_c0.jpg" alt="缺陷60特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 60-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930104257_0062_V_1_88_147_0_c0_mask.png" alt="缺陷60掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 60-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930104257_0062_V_1_88_147_0_c0_vis.jpg" alt="缺陷60叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 60-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-61">
+<div class='detail-title'>缺陷 61 — 水渍</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930110454_0014_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.3837) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.662) E</td></tr>
+<tr><td>拍摄高度</td><td>75.955 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>水渍</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见水渍痕迹，呈片状或条状分布，判断为水渍。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积3144像素，占比8.2%（通常水渍类缺陷不超过1.5%），该缺陷达正常阈值的5.5倍，多区域水渍，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930110454_0014_V_0_75_955_0_c9_map.jpg" alt="缺陷61位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 61-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930110454_0014_V_0_75_955_0_c9.jpg" alt="缺陷61特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 61-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_0_c9_mask.png" alt="缺陷61掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 61-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_0_c9_vis.jpg" alt="缺陷61叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 61-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-62">
+<div class='detail-title'>缺陷 62 — 水渍</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930110454_0014_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.3837) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.662) E</td></tr>
+<tr><td>拍摄高度</td><td>75.955 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>水渍</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见水渍痕迹，呈片状或条状分布，判断为水渍。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积2164像素，占比8.3%（通常水渍类缺陷不超过1.5%），该缺陷达正常阈值的5.6倍，多区域水渍，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930110454_0014_V_0_75_955_1_c9_map.jpg" alt="缺陷62位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 62-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930110454_0014_V_0_75_955_1_c9.jpg" alt="缺陷62特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 62-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_1_c9_mask.png" alt="缺陷62掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 62-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_1_c9_vis.jpg" alt="缺陷62叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 62-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-63">
+<div class='detail-title'>缺陷 63 — 水渍</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930110454_0014_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.3837) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.662) E</td></tr>
+<tr><td>拍摄高度</td><td>75.955 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>水渍</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见水渍痕迹，呈片状或条状分布，判断为水渍。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积3571像素，占比11.4%（通常水渍类缺陷不超过1.5%），该缺陷达正常阈值的7.6倍，多区域水渍，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930110454_0014_V_0_75_955_2_c9_map.jpg" alt="缺陷63位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 63-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930110454_0014_V_0_75_955_2_c9.jpg" alt="缺陷63特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 63-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_2_c9_mask.png" alt="缺陷63掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 63-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_2_c9_vis.jpg" alt="缺陷63叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 63-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-64">
+<div class='detail-title'>缺陷 64 — 水渍</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930110454_0014_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.3837) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.662) E</td></tr>
+<tr><td>拍摄高度</td><td>75.955 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>水渍</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见水渍痕迹，呈片状或条状分布，判断为水渍。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积2026像素，占比10.6%（通常水渍类缺陷不超过1.5%），该缺陷达正常阈值的7.1倍，多区域水渍，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930110454_0014_V_0_75_955_3_c9_map.jpg" alt="缺陷64位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 64-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930110454_0014_V_0_75_955_3_c9.jpg" alt="缺陷64特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 64-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_3_c9_mask.png" alt="缺陷64掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 64-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_3_c9_vis.jpg" alt="缺陷64叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 64-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-65">
+<div class='detail-title'>缺陷 65 — 水渍</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930110454_0014_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.3837) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.662) E</td></tr>
+<tr><td>拍摄高度</td><td>75.955 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>水渍</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见水渍痕迹，呈片状或条状分布，判断为水渍。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积1587像素，占比5.7%（通常水渍类缺陷不超过1.5%），该缺陷达正常阈值的3.8倍，多区域水渍，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930110454_0014_V_0_75_955_4_c9_map.jpg" alt="缺陷65位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 65-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930110454_0014_V_0_75_955_4_c9.jpg" alt="缺陷65特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 65-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_4_c9_mask.png" alt="缺陷65掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 65-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_4_c9_vis.jpg" alt="缺陷65叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 65-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-66">
+<div class='detail-title'>缺陷 66 — 水渍</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930110454_0014_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.3837) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.662) E</td></tr>
+<tr><td>拍摄高度</td><td>75.955 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>水渍</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见水渍痕迹，呈片状或条状分布，判断为水渍。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积4201像素，占比7.2%（通常水渍类缺陷不超过1.5%），该缺陷达正常阈值的4.8倍，多区域水渍，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930110454_0014_V_0_75_955_5_c9_map.jpg" alt="缺陷66位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 66-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930110454_0014_V_0_75_955_5_c9.jpg" alt="缺陷66特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 66-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_5_c9_mask.png" alt="缺陷66掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 66-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_5_c9_vis.jpg" alt="缺陷66叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 66-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-67">
+<div class='detail-title'>缺陷 67 — 水渍</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930110454_0014_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.3837) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.662) E</td></tr>
+<tr><td>拍摄高度</td><td>75.955 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>水渍</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见水渍痕迹，呈片状或条状分布，判断为水渍。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积2331像素，占比11.2%（通常水渍类缺陷不超过1.5%），该缺陷达正常阈值的7.5倍，多区域水渍，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930110454_0014_V_0_75_955_6_c9_map.jpg" alt="缺陷67位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 67-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930110454_0014_V_0_75_955_6_c9.jpg" alt="缺陷67特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 67-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_6_c9_mask.png" alt="缺陷67掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 67-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_6_c9_vis.jpg" alt="缺陷67叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 67-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-68">
+<div class='detail-title'>缺陷 68 — 水渍</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930110454_0014_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.3837) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.662) E</td></tr>
+<tr><td>拍摄高度</td><td>75.955 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>水渍</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见水渍痕迹，呈片状或条状分布，判断为水渍。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积3529像素，占比11.1%（通常水渍类缺陷不超过1.5%），该缺陷达正常阈值的7.4倍，多区域水渍，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930110454_0014_V_0_75_955_7_c9_map.jpg" alt="缺陷68位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 68-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930110454_0014_V_0_75_955_7_c9.jpg" alt="缺陷68特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 68-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_7_c9_mask.png" alt="缺陷68掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 68-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_7_c9_vis.jpg" alt="缺陷68叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 68-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-69">
+<div class='detail-title'>缺陷 69 — 水渍</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930110454_0014_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.3837) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.662) E</td></tr>
+<tr><td>拍摄高度</td><td>75.955 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>水渍</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见水渍痕迹，呈片状或条状分布，判断为水渍。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积4666像素，占比11.7%（通常水渍类缺陷不超过1.5%），该缺陷达正常阈值的7.8倍，多区域水渍，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930110454_0014_V_0_75_955_8_c9_map.jpg" alt="缺陷69位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 69-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930110454_0014_V_0_75_955_8_c9.jpg" alt="缺陷69特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 69-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_8_c9_mask.png" alt="缺陷69掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 69-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_8_c9_vis.jpg" alt="缺陷69叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 69-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-70">
+<div class='detail-title'>缺陷 70 — 水渍</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930110454_0014_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.3837) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.662) E</td></tr>
+<tr><td>拍摄高度</td><td>75.955 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>水渍</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见水渍痕迹，呈片状或条状分布，判断为水渍。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积1616像素，占比8.2%（通常水渍类缺陷不超过1.5%），该缺陷达正常阈值的5.5倍，多区域水渍，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930110454_0014_V_0_75_955_9_c9_map.jpg" alt="缺陷70位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 70-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930110454_0014_V_0_75_955_9_c9.jpg" alt="缺陷70特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 70-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_9_c9_mask.png" alt="缺陷70掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 70-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_9_c9_vis.jpg" alt="缺陷70叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 70-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-71">
+<div class='detail-title'>缺陷 71 — 水渍</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930110454_0014_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.3837) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.662) E</td></tr>
+<tr><td>拍摄高度</td><td>75.955 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>水渍</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见水渍痕迹，呈片状或条状分布，判断为水渍。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积1850像素，占比7.9%（通常水渍类缺陷不超过1.5%），该缺陷达正常阈值的5.2倍，多区域水渍，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930110454_0014_V_0_75_955_10_c9_map.jpg" alt="缺陷71位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 71-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930110454_0014_V_0_75_955_10_c9.jpg" alt="缺陷71特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 71-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_10_c9_mask.png" alt="缺陷71掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 71-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_10_c9_vis.jpg" alt="缺陷71叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 71-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-72">
+<div class='detail-title'>缺陷 72 — 水渍</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930110454_0014_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.3837) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.662) E</td></tr>
+<tr><td>拍摄高度</td><td>75.955 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>水渍</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见水渍痕迹，呈片状或条状分布，判断为水渍。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积1943像素，占比13.6%（通常水渍类缺陷不超过1.5%），该缺陷达正常阈值的9.1倍，多区域水渍，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930110454_0014_V_0_75_955_11_c9_map.jpg" alt="缺陷72位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 72-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930110454_0014_V_0_75_955_11_c9.jpg" alt="缺陷72特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 72-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_11_c9_mask.png" alt="缺陷72掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 72-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_11_c9_vis.jpg" alt="缺陷72叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 72-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-73">
+<div class='detail-title'>缺陷 73 — 水渍</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930110454_0014_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.3837) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.662) E</td></tr>
+<tr><td>拍摄高度</td><td>75.955 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>水渍</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见水渍痕迹，呈片状或条状分布，判断为水渍。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积2448像素，占比9.4%（通常水渍类缺陷不超过1.5%），该缺陷达正常阈值的6.3倍，多区域水渍，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930110454_0014_V_0_75_955_12_c9_map.jpg" alt="缺陷73位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 73-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930110454_0014_V_0_75_955_12_c9.jpg" alt="缺陷73特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 73-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_12_c9_mask.png" alt="缺陷73掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 73-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_12_c9_vis.jpg" alt="缺陷73叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 73-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-74">
+<div class='detail-title'>缺陷 74 — 水渍</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930110454_0014_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.3837) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.662) E</td></tr>
+<tr><td>拍摄高度</td><td>75.955 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>水渍</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见水渍痕迹，呈片状或条状分布，判断为水渍。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积2615像素，占比5.1%（通常水渍类缺陷不超过1.5%），该缺陷达正常阈值的3.4倍，多区域水渍，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930110454_0014_V_0_75_955_13_c9_map.jpg" alt="缺陷74位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 74-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930110454_0014_V_0_75_955_13_c9.jpg" alt="缺陷74特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 74-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_13_c9_mask.png" alt="缺陷74掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 74-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_13_c9_vis.jpg" alt="缺陷74叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 74-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-75">
+<div class='detail-title'>缺陷 75 — 水渍</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930110454_0014_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.3837) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.662) E</td></tr>
+<tr><td>拍摄高度</td><td>75.955 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>水渍</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见水渍痕迹，呈片状或条状分布，判断为水渍。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积3555像素，占比11.4%（通常水渍类缺陷不超过1.5%），该缺陷达正常阈值的7.6倍，多区域水渍，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930110454_0014_V_0_75_955_14_c9_map.jpg" alt="缺陷75位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 75-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930110454_0014_V_0_75_955_14_c9.jpg" alt="缺陷75特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 75-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_14_c9_mask.png" alt="缺陷75掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 75-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_14_c9_vis.jpg" alt="缺陷75叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 75-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-76">
+<div class='detail-title'>缺陷 76 — 空鼓</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930110454_0014_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.3837) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.662) E</td></tr>
+<tr><td>拍摄高度</td><td>75.955 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>空鼓</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见空鼓剥离区域，局部伴有饰面层脱落痕迹，判断为空鼓。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积43506像素，占比5.0%（通常空鼓类缺陷不超过3.0%），该缺陷达正常阈值的1.7倍，涉及多个分散区域，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930110454_0014_V_0_75_955_15_c1_map.jpg" alt="缺陷76位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 76-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930110454_0014_V_0_75_955_15_c1.jpg" alt="缺陷76特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 76-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_15_c1_mask.png" alt="缺陷76掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 76-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_15_c1_vis.jpg" alt="缺陷76叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 76-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-77">
+<div class='detail-title'>缺陷 77 — 水渍</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930110454_0014_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.3837) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.662) E</td></tr>
+<tr><td>拍摄高度</td><td>75.955 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>水渍</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见水渍痕迹，呈片状或条状分布，判断为水渍。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积1049像素，占比3.0%（通常水渍类缺陷不超过1.5%），该缺陷达正常阈值的2.0倍，多区域水渍，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930110454_0014_V_0_75_955_16_c9_map.jpg" alt="缺陷77位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 77-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930110454_0014_V_0_75_955_16_c9.jpg" alt="缺陷77特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 77-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_16_c9_mask.png" alt="缺陷77掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 77-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_0_75_955_16_c9_vis.jpg" alt="缺陷77叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 77-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-78">
+<div class='detail-title'>缺陷 78 — 锈迹</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930110454_0014_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.3837) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.662) E</td></tr>
+<tr><td>拍摄高度</td><td>75.955 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>锈迹</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中可见红褐色锈蚀斑点或条纹，金属构件表面氧化特征明显，判断为锈迹。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-1'>轻微缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积57像素，占比0.9%（通常锈迹类缺陷不超过2.0%），该缺陷达正常阈值的0.5倍，呈片状集中分布，平均宽度约3.0px，严重程度判断为轻微缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>暂不修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930110454_0014_V_1_75_955_0_c3_map.jpg" alt="缺陷78位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 78-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930110454_0014_V_1_75_955_0_c3.jpg" alt="缺陷78特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 78-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_1_75_955_0_c3_mask.png" alt="缺陷78掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 78-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_1_75_955_0_c3_vis.jpg" alt="缺陷78叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 78-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-79">
+<div class='detail-title'>缺陷 79 — 剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930110454_0014_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.3837) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.662) E</td></tr>
+<tr><td>拍摄高度</td><td>75.955 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面出现块状或片状脱落区域，基层暴露，判断为剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积877像素，占比39.7%（通常剥落类缺陷不超过2.0%），该缺陷达正常阈值的19.8倍，脱落深度需现场敲击确认，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930110454_0014_V_1_75_955_1_c2_map.jpg" alt="缺陷79位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 79-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930110454_0014_V_1_75_955_1_c2.jpg" alt="缺陷79特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 79-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_1_75_955_1_c2_mask.png" alt="缺陷79掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 79-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930110454_0014_V_1_75_955_1_c2_vis.jpg" alt="缺陷79叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 79-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-80">
+<div class='detail-title'>缺陷 80 — 锈迹</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930111142_0059_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.2116) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.5438) E</td></tr>
+<tr><td>拍摄高度</td><td>24.781 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>锈迹</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中可见红褐色锈蚀斑点或条纹，金属构件表面氧化特征明显，判断为锈迹。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积29978像素，占比77.6%（通常锈迹类缺陷不超过2.0%），该缺陷达正常阈值的38.8倍，呈点状分散分布，平均宽度约18.0px，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930111142_0059_V_0_24_781_0_c3_map.jpg" alt="缺陷80位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 80-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930111142_0059_V_0_24_781_0_c3.jpg" alt="缺陷80特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 80-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111142_0059_V_0_24_781_0_c3_mask.png" alt="缺陷80掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 80-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111142_0059_V_0_24_781_0_c3_vis.jpg" alt="缺陷80叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 80-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-81">
+<div class='detail-title'>缺陷 81 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930111142_0059_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.2116) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.5438) E</td></tr>
+<tr><td>拍摄高度</td><td>24.781 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积628像素，占比6.6%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的1.3倍，呈弥散分布状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930111142_0059_V_0_24_781_1_c0_map.jpg" alt="缺陷81位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 81-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930111142_0059_V_0_24_781_1_c0.jpg" alt="缺陷81特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 81-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111142_0059_V_0_24_781_1_c0_mask.png" alt="缺陷81掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 81-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111142_0059_V_0_24_781_1_c0_vis.jpg" alt="缺陷81叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 81-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-82">
+<div class='detail-title'>缺陷 82 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930111142_0059_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.2116) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.5438) E</td></tr>
+<tr><td>拍摄高度</td><td>24.781 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积693像素，占比4.9%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的1.0倍，呈弥散分布状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930111142_0059_V_0_24_781_2_c0_map.jpg" alt="缺陷82位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 82-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930111142_0059_V_0_24_781_2_c0.jpg" alt="缺陷82特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 82-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111142_0059_V_0_24_781_2_c0_mask.png" alt="缺陷82掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 82-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111142_0059_V_0_24_781_2_c0_vis.jpg" alt="缺陷82叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 82-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-83">
+<div class='detail-title'>缺陷 83 — 锈迹</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930111142_0059_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 21.2116) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.5438) E</td></tr>
+<tr><td>拍摄高度</td><td>24.781 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>锈迹</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中可见红褐色锈蚀斑点或条纹，金属构件表面氧化特征明显，判断为锈迹。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积2223像素，占比16.3%（通常锈迹类缺陷不超过2.0%），该缺陷达正常阈值的8.2倍，呈片状集中分布，平均宽度约7.7px，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>大修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930111142_0059_V_0_24_781_3_c3_map.jpg" alt="缺陷83位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 83-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930111142_0059_V_0_24_781_3_c3.jpg" alt="缺陷83特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 83-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111142_0059_V_0_24_781_3_c3_mask.png" alt="缺陷83掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 83-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111142_0059_V_0_24_781_3_c3_vis.jpg" alt="缺陷83叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 83-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-84">
+<div class='detail-title'>缺陷 84 — 空鼓</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930111609_0084_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 20.4666) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.0203) E</td></tr>
+<tr><td>拍摄高度</td><td>138.578 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>空鼓</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见空鼓剥离区域，局部伴有饰面层脱落痕迹，判断为空鼓。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积2157像素，占比6.5%（通常空鼓类缺陷不超过3.0%），该缺陷达正常阈值的2.2倍，涉及多个分散区域，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930111609_0084_V_0_138_578_0_c1_map.jpg" alt="缺陷84位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 84-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930111609_0084_V_0_138_578_0_c1.jpg" alt="缺陷84特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 84-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111609_0084_V_0_138_578_0_c1_mask.png" alt="缺陷84掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 84-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111609_0084_V_0_138_578_0_c1_vis.jpg" alt="缺陷84叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 84-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-85">
+<div class='detail-title'>缺陷 85 — 水渍</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930111609_0084_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 20.4666) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.0203) E</td></tr>
+<tr><td>拍摄高度</td><td>138.578 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>水渍</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面可见水渍痕迹，呈片状或条状分布，判断为水渍。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积3001像素，占比11.3%（通常水渍类缺陷不超过1.5%），该缺陷达正常阈值的7.5倍，多区域水渍，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930111609_0084_V_0_138_578_1_c9_map.jpg" alt="缺陷85位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 85-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930111609_0084_V_0_138_578_1_c9.jpg" alt="缺陷85特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 85-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111609_0084_V_0_138_578_1_c9_mask.png" alt="缺陷85掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 85-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111609_0084_V_0_138_578_1_c9_vis.jpg" alt="缺陷85叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 85-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-86">
+<div class='detail-title'>缺陷 86 — 裂缝</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930111609_0084_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 20.4666) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.0203) E</td></tr>
+<tr><td>拍摄高度</td><td>138.578 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>裂缝</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中存在线状或网状暗色纹理，与周围墙体形成明显灰度差异，判断为裂缝。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积10703像素，占比6.0%（通常裂缝类缺陷不超过5.0%），该缺陷达正常阈值的1.2倍，呈弥散分布状态，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930111609_0084_V_0_138_578_2_c0_map.jpg" alt="缺陷86位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 86-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930111609_0084_V_0_138_578_2_c0.jpg" alt="缺陷86特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 86-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111609_0084_V_0_138_578_2_c0_mask.png" alt="缺陷86掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 86-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111609_0084_V_0_138_578_2_c0_vis.jpg" alt="缺陷86叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 86-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-87">
+<div class='detail-title'>缺陷 87 — 大面积剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930111848_0116_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 20.7749) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.0059) E</td></tr>
+<tr><td>拍摄高度</td><td>111.759 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>大面积剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面大面积破损，可见裸露基层及风化痕迹，判断为大面积剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积43956像素，占比38.9%（通常大面积破损类缺陷不超过8.0%），该缺陷达正常阈值的4.9倍，多区域分布，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930111848_0116_V_0_111_759_0_c5_map.jpg" alt="缺陷87位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 87-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930111848_0116_V_0_111_759_0_c5.jpg" alt="缺陷87特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 87-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111848_0116_V_0_111_759_0_c5_mask.png" alt="缺陷87掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 87-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111848_0116_V_0_111_759_0_c5_vis.jpg" alt="缺陷87叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 87-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-88">
+<div class='detail-title'>缺陷 88 — 渗漏</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930111848_0116_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 20.7749) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.0059) E</td></tr>
+<tr><td>拍摄高度</td><td>111.759 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>渗漏</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面出现不规则水渍痕迹，伴有霉斑或泛碱特征，判断为渗漏。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积2349193像素，占比39.7%（通常渗漏类缺陷不超过1.5%），该缺陷达正常阈值的26.4倍，多处渗漏点，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930111848_0116_V_0_111_759_1_c4_map.jpg" alt="缺陷88位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 88-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930111848_0116_V_0_111_759_1_c4.jpg" alt="缺陷88特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 88-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111848_0116_V_0_111_759_1_c4_mask.png" alt="缺陷88掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 88-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111848_0116_V_0_111_759_1_c4_vis.jpg" alt="缺陷88叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 88-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-89">
+<div class='detail-title'>缺陷 89 — 锈迹</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930111848_0116_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 20.7749) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.0059) E</td></tr>
+<tr><td>拍摄高度</td><td>111.759 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>锈迹</strong><br><span style="font-size:9pt;color:#555;">判断依据：图像中可见红褐色锈蚀斑点或条纹，金属构件表面氧化特征明显，判断为锈迹。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-2'>一般缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积3526像素，占比4.4%（通常锈迹类缺陷不超过2.0%），该缺陷达正常阈值的2.2倍，呈点状分散分布，平均宽度约3.3px，严重程度判断为一般缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>小修</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930111848_0116_V_0_111_759_2_c3_map.jpg" alt="缺陷89位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 89-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930111848_0116_V_0_111_759_2_c3.jpg" alt="缺陷89特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 89-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111848_0116_V_0_111_759_2_c3_mask.png" alt="缺陷89掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 89-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111848_0116_V_0_111_759_2_c3_vis.jpg" alt="缺陷89叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 89-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+
+</div>
+
+<div class='detail' id="defect-90">
+<div class='detail-title'>缺陷 90 — 剥落</div>
+<table class='info-table'>
+<tr><td>原始图像</td><td>DJI_20240930111848_0116_V.JPG</td><td>拍摄时间</td><td></td></tr>
+<tr><td>GPS纬度</td><td>(22.0, 20.0, 20.7749) N</td><td>GPS经度</td><td>(114.0, 8.0, 48.0059) E</td></tr>
+<tr><td>拍摄高度</td><td>111.759 m</td><td>行人风险</td><td>否</td></tr>
+<tr><td><strong>缺陷类型</strong></td><td colspan='3'><strong>剥落</strong><br><span style="font-size:9pt;color:#555;">判断依据：墙体表面出现块状或片状脱落区域，基层暴露，判断为剥落。</span></td></tr>
+<tr><td>严重程度</td><td colspan='3'><span class='severity severity-3'>严重缺陷</span><br><span style="font-size:9pt;color:#555;">严重程度依据：缺陷面积6145像素，占比39.4%（通常剥落类缺陷不超过2.0%），该缺陷达正常阈值的19.7倍，脱落深度需现场敲击确认，严重程度判断为严重缺陷。</span></td></tr>
+<tr><td>处理建议</td><td colspan='3'>立即修复</td></tr>
+</table>
+
+<div class='photo-row' style="justify-content: space-between;">
+<div class='photo-box'>
+<img src="single_defect_maps/DJI_20240930111848_0116_V_0_111_759_3_c2_map.jpg" alt="缺陷90位置图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 90-a — 缺陷在大图中的位置</div>
+</div>
+<div class='photo-box'>
+<img src="defects/DJI_20240930111848_0116_V_0_111_759_3_c2.jpg" alt="缺陷90特写" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 90-b — 缺陷局部特写</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111848_0116_V_0_111_759_3_c2_mask.png" alt="缺陷90掩码" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 90-c — 缺陷掩码（二值分割）</div>
+</div>
+<div class='photo-box'>
+<img src="defect_masks/DJI_20240930111848_0116_V_0_111_759_3_c2_vis.jpg" alt="缺陷90叠加图" style="max-width:4.5cm;max-height:6cm;" />
+<div class="caption">图 90-d — 缺陷掩码与原图叠加</div>
+</div>
+</div>
+</div>
+
+<div class="new-section">
+<h2>六、鉴定结论</h2>
+<p><span class="sample-text">[样例：根据现场调查、勘查、委托方提供资料及检测情况，结合《红外热像法检测建筑外墙饰面粘结质量技术规程》JGJ/T 277-2012，作鉴定结论如下：]</span></p>
+<p><span class="sample-text">[样例：{self.building_name} 建筑外墙饰面层粘结质量为]</span> <strong><span class="sample-text">[样例：II 级]</span></strong><span class="sample-text">[样例：，存在渗水、开裂、空鼓等质量问题。]</span></p>
+<p>本次检测共发现缺陷 <strong>90</strong> 处，缺陷统计如下：</p>
+<table class='index-table'>
+<tr><th>类别编号</th><th>缺陷类型</th><th>数量（处）</th></tr>
+<tr><td>0</td><td>裂缝</td><td>24</td></tr>
+<tr><td>1</td><td>空鼓</td><td>7</td></tr>
+<tr><td>2</td><td>剥落</td><td>11</td></tr>
+<tr><td>3</td><td>锈迹</td><td>16</td></tr>
+<tr><td>4</td><td>渗漏</td><td>1</td></tr>
+<tr><td>5</td><td>大面积剥落</td><td>12</td></tr>
+<tr><td>9</td><td>水渍</td><td>18</td></tr>
+<tr><td>11</td><td>污染物/附着物</td><td>1</td></tr>
+
+<tr><td colspan='2'><strong>合计</strong></td><td><strong>90</strong></td></tr>
+</table>
+<p><span class="sample-text">[样例：经综合评估，{self.building_name} 外墙存在较为严重的饰面缺陷，部分区域有脱落风险，建议尽快采取修缮措施。]</span></p>
+</div>
+
+<div class="new-section">
+<h2>七、建议与说明</h2>
+<h3>7.1 安全防护措施</h3>
+<p><span class="sample-text">[样例：应立即做好高空坠落的防范措施。建议在缺陷区域下方设置警戒线、警示标志，必要时搭建防护棚，确保行人及车辆安全。]</span></p>
+
+<h3>7.2 修缮处理建议</h3>
+<p><span class="sample-text">[样例：建议业主聘请有相应资质的施工单位对损伤做如下处理：]</span></p>
+<p>1）<span class="sample-text">[样例：首先将空鼓脱落部位附近清除干净，清除区域宜大于明显空鼓脱落面积的两倍以上。清除内容包括松动的装饰材料、粘结不牢的砂浆等杂质，确保基层表面坚实、干净、无灰尘和油污等。]</span></p>
+<p>2）<span class="sample-text">[样例：重新进行抹灰挂网，挂网可以增强基层与后续装饰层的粘结力，防止再次空鼓脱落。]</span></p>
+<p>3）<span class="sample-text">[样例：最后做质感漆或刷涂料处理，修复后的外墙在外观和功能上应与原墙面保持一致。]</span></p>
+
+<h3>7.3 其他说明</h3>
+<p>1）<span class="sample-text">[样例：因空鼓是动态发展、逐步恶化的过程，本报告基于现状有效，建议修缮施工时进一步查明开裂、空鼓、脱落等缺陷位置，及时采取相应措施。]</span></p>
+<p>2）<span class="sample-text">[样例：本报告有效期为一年，建议定期复检。]</span></p>
+<p>3）<span class="sample-text">[样例：本报告仅对委托检测范围内容负责，未检测区域不代表无缺陷。]</span></p>
+</div>
+
+<div class="new-section">
+<h2>附件一：公司资质材料</h2>
+<p><span class="sample-text">[样例：企业营业执照、资质证书、计量认证证书等。]</span></p>
+</div>
+<script>
+(function () {
+  var toggle = document.getElementById("word-toggle");
+  function paginateSummaryTable() {
+    var table = document.querySelector("table.summary-table");
+    if (!table || table.getAttribute("data-paginated") === "true") return;
+    var rows = Array.prototype.slice.call(table.rows);
+    var header = rows.shift();
+    var parent = table.parentElement;
+    var intro = table.previousElementSibling;
+    var heading = intro && intro.previousElementSibling;
+    if (intro && intro.tagName === "P") intro.remove();
+    if (heading && heading.tagName === "H3") heading.remove();
+    var anchor = parent;
+    for (var start = 0, page = 0; start < rows.length; start += 12, page += 1) {
+      var section = document.createElement("div");
+      section.className = "new-section summary-page";
+      section.innerHTML = "<h2>五、现场勘验及检测情况（续）</h2><h3>5.3 建筑物外墙外立面缺陷情况" + (page ? "（续）" : "") + "</h3>";
+      var tablePage = table.cloneNode(false);
+      tablePage.appendChild(header.cloneNode(true));
+      rows.slice(start, start + 12).forEach(function (row) { tablePage.appendChild(row.cloneNode(true)); });
+      section.appendChild(tablePage);
+      parent.parentNode.insertBefore(section, anchor.nextSibling);
+      anchor = section;
+    }
+    table.setAttribute("data-paginated", "true");
+    table.remove();
+  }
+  function setWordMode(enabled) {
+    if (enabled) paginateSummaryTable();
+    document.body.classList.toggle("word-mode", enabled);
+    toggle.setAttribute("aria-pressed", enabled ? "true" : "false");
+    toggle.textContent = enabled ? "网页连续版" : "Word 分页版";
+    try { sessionStorage.setItem("facadefixer-reference-word-mode", enabled ? "1" : "0"); } catch (ignore) {}
+  }
+  try { setWordMode(sessionStorage.getItem("facadefixer-reference-word-mode") === "1"); } catch (ignore) { setWordMode(false); }
+  toggle.addEventListener("click", function () { setWordMode(!document.body.classList.contains("word-mode")); });
+  document.getElementById("print-button").addEventListener("click", function () { window.focus(); window.print(); });
+}());
+</script>
+</body></html>
+
