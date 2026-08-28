@@ -1,33 +1,60 @@
 (function () {
   "use strict";
   var reportRoot = document.getElementById("report");
-  var stateLabels = { measured: "正式量测/人工确认", model_estimate: "模型估算（未作为正式量测）", not_collected: "未采集", inaccessible: "不可达", pending_confirmation: "待确认" };
-  var categoryLabels = { concrete_crack: "混凝土裂缝", concrete_spalling: "混凝土剥落", rust_stain: "锈迹", water_stain: "水渍", tile_crack: "瓷砖裂缝", tile_spalling: "瓷砖剥落", contaminants: "污染物/附着物" };
-  var escapeHtml = function (value) { return String(value == null ? "" : value).replace(/[&<>'"]/g, function (char) { return {"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;","\"":"&quot;"}[char]; }); };
-  var label = function (id, labels) { return labels[id] || id || "待补充"; };
-  var evidenceHtml = function (item) { var image = item.image_uri ? '<img src="' + escapeHtml(item.image_uri) + '" alt="已批准证据">' : '<div class="evidence-placeholder">证据图片待补充</div>'; return '<article class="evidence">' + image + '<span class="status ' + escapeHtml(item.state) + '">' + escapeHtml(label(item.state, stateLabels)) + '</span><p>' + escapeHtml(item.caption || item.reason || "无补充说明") + '</p><small>来源：' + escapeHtml(item.source) + ' · 期次：' + escapeHtml(item.period) + ' · 版本：' + escapeHtml(item.version) + '</small></article>'; };
-  var preflight = function (data) { var missing = []; var responsibility = data.project && data.project.responsibility || {}; ["inspector", "author", "reviewer", "approver"].forEach(function (key) { if (!responsibility[key] || responsibility[key] === "待补充") missing.push(key); }); return missing; };
-  var render = function (data) {
+  var labels = { concrete_crack:"裂缝", concrete_spalling:"剥落", rust_stain:"锈迹", water_stain:"水渍", tile_crack:"瓷砖裂缝", tile_spalling:"瓷砖剥落", contaminants:"污染物/附着物" };
+  var severity = { minor:{text:"轻微缺陷",level:1,advice:"暂不修复，纳入后续巡检。"}, general:{text:"一般缺陷",level:2,advice:"建议安排局部修缮并复核。"}, serious:{text:"严重缺陷",level:3,advice:"建议立即采取防坠落措施并尽快修复。"} };
+  function esc(value) { return String(value == null ? "待补充" : value).replace(/[&<>'"]/g, function (char) { return {"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;","\"":"&quot;"}[char]; }); }
+  function value(item, fallback) { return item || fallback || "待补充"; }
+  function sourceText(data) { return "本报告基于冻结的 ReportDocument v1 数据生成。模型估算、未采集、不可达和待确认信息均按原状态展示，不作为正式量测结果。"; }
+  function photos(defect) {
+    var evidence = defect.evidence || [];
+    var cards = evidence.slice(0, 4).map(function (item, index) {
+      var media = item.image_uri ? '<img src="' + esc(item.image_uri) + '" alt="缺陷证据">' : '<div class="photo-placeholder">证据图片待补充</div>';
+      return '<div class="photo-box">' + media + '<div class="caption">图 ' + (index + 1) + '：' + esc(item.caption || item.state || "证据说明待补充") + '</div></div>';
+    });
+    while (cards.length < 4) cards.push('<div class="photo-box"><div class="photo-placeholder">证据图片待补充</div><div class="caption">图 ' + (cards.length + 1) + '：待补充</div></div>');
+    return cards.join("");
+  }
+  function summaryRows(defects) {
+    return defects.map(function (defect, index) {
+      var rule = severity[defect.severity] || severity.general;
+      return '<tr><td>' + (index + 1) + '</td><td>' + esc(labels[defect.category_id] || defect.category_id) + '</td><td>' + esc(defect.building_id) + '</td><td>' + esc(defect.facade_id) + '</td><td class="severity severity-' + rule.level + '">' + rule.text + '</td><td>' + esc(rule.advice) + '</td></tr>';
+    }).join("");
+  }
+  function details(defects) {
+    return defects.map(function (defect, index) {
+      var rule = severity[defect.severity] || severity.general;
+      var conclusion = defect.expert_conclusion || {};
+      return '<section class="detail"><div class="detail-title">缺陷 ' + (index + 1) + '：' + esc(labels[defect.category_id] || defect.category_id) + '</div>' +
+        '<table class="defect-table"><tr><td>缺陷编号</td><td>' + esc(defect.defect_id) + '</td><td>严重程度</td><td class="severity severity-' + rule.level + '">' + rule.text + '</td></tr><tr><td>所属楼栋</td><td>' + esc(defect.building_id) + '</td><td>所属立面</td><td>' + esc(defect.facade_id) + '</td></tr></table>' +
+        '<div class="defect-desc"><b>缺陷描述：</b>' + esc(value(conclusion.text, "待专家补充")) + '</div><div class="cause-text"><b>成因分析：</b>依据冻结专家结论及已批准证据进行复核，具体成因以现场复核为准。</div><div class="treatment-text"><b>处理建议：</b>' + esc(rule.advice) + '</div><div class="photo-row">' + photos(defect) + '</div></section>';
+    }).join("");
+  }
+  function render(data) {
     if (!data || data.schema_version !== "report-document/v1") throw new Error("仅支持 report-document/v1 JSON");
-    var project = data.project || {}, defects = data.defects || [], missing = preflight(data);
-    var counts = defects.reduce(function (result, item) { result[item.severity || "general"] = (result[item.severity || "general"] || 0) + 1; return result; }, {});
-    var standards = (project.standards || []).map(function (item) { return '<li>' + escapeHtml(item) + '</li>'; }).join("");
-    var instruments = (project.instruments || []).map(function (item, index) { return '<tr><td>' + (index + 1) + '</td><td>' + escapeHtml(item.name) + '</td><td>' + escapeHtml(item.model) + '</td><td>' + escapeHtml(item.asset_id) + '</td></tr>'; }).join("");
-    var defectRows = defects.map(function (item, index) { var evidence = item.evidence && item.evidence[0] || {}; return '<tr><td>' + (index + 1) + '</td><td>' + escapeHtml(item.defect_id) + '</td><td>' + escapeHtml(item.building_id) + '</td><td>' + escapeHtml(item.facade_id) + '</td><td>' + escapeHtml(label(item.category_id, categoryLabels)) + '</td><td class="severity ' + escapeHtml(item.severity || "general") + '">' + escapeHtml(label(item.severity || "general", {minor:"轻微",general:"一般",serious:"严重"})) + '</td><td><span class="status ' + escapeHtml(evidence.state) + '">' + escapeHtml(label(evidence.state, stateLabels)) + '</span></td></tr>'; }).join("");
-    var details = defects.map(function (item, index) { var evidence = item.evidence || []; return '<article class="defect"><div class="defect-title">缺陷 ' + (index + 1) + ' · ' + escapeHtml(item.defect_id) + ' · ' + escapeHtml(label(item.category_id, categoryLabels)) + '</div><div class="defect-content"><table class="info-table"><tr><td>楼栋</td><td>' + escapeHtml(item.building_id) + '</td><td>立面</td><td>' + escapeHtml(item.facade_id) + '</td></tr><tr><td>严重程度</td><td class="severity ' + escapeHtml(item.severity || "general") + '">' + escapeHtml(label(item.severity || "general", {minor:"轻微",general:"一般",serious:"严重"})) + '</td><td>冻结结论</td><td>' + escapeHtml(item.expert_conclusion && item.expert_conclusion.text || "待补充") + '</td></tr></table><div class="evidence-grid">' + (evidence.length ? evidence.map(evidenceHtml).join("") : '<div class="evidence-placeholder">未提供证据</div>') + '</div></div></article>'; }).join("");
-    reportRoot.innerHTML = '<section class="cover"><h1>外墙检测鉴定报告</h1><h2>网页端专业预览版</h2><div class="cover-meta"><p><b>工程名称：</b>' + escapeHtml(project.name) + '</p><p><b>检测期次：</b>' + escapeHtml(project.period) + '</p><p><b>报告版本：</b>' + escapeHtml(data.report_version) + '</p><p><b>冻结时间：</b>' + escapeHtml(data.frozen_at) + '</p></div></section>' +
-      '<section class="section"><h1>责任信息与目录</h1>' + (missing.length ? '<div class="notice"><b>尚不能形成正式版本：</b>请补充责任信息：' + missing.map(escapeHtml).join("、") + '。</div>' : '<div class="notice">责任信息完整，可进入正式版本的后续审批流程。</div>') + '<table class="info-table"><tr><td>委托单位</td><td>' + escapeHtml(project.client) + '</td><td>工程地点</td><td>' + escapeHtml(project.location) + '</td></tr><tr><td>现场检测</td><td>' + escapeHtml(project.responsibility && project.responsibility.inspector) + '</td><td>报告编写</td><td>' + escapeHtml(project.responsibility && project.responsibility.author) + '</td></tr><tr><td>报告审核</td><td>' + escapeHtml(project.responsibility && project.responsibility.reviewer) + '</td><td>报告批准</td><td>' + escapeHtml(project.responsibility && project.responsibility.approver) + '</td></tr></table><ol class="toc"><li>工程概况</li><li>检测依据与方法</li><li>主要检测仪器</li><li>楼栋与立面索引</li><li>缺陷汇总表</li><li>逐缺陷证据</li><li>结论与说明</li></ol></section>' +
-      '<section class="section"><h1>一、工程概况</h1><p>' + escapeHtml(project.overview || "工程概况待补充") + '</p><h2>二、检测依据与方法</h2><p>' + escapeHtml(project.method || "检测方法待补充") + '</p><p><b>引用标准：</b></p><ol>' + standards + '</ol><h2>三、主要检测仪器</h2><table><thead><tr><th>序号</th><th>仪器名称</th><th>型号</th><th>编号</th></tr></thead><tbody>' + instruments + '</tbody></table></section>' +
-      '<section class="section"><h1>四、楼栋与立面索引</h1><p>本网页端预览依据 ReportDocument 中的缺陷归属生成索引；图形索引将由 #130 补充。</p><table><thead><tr><th>楼栋</th><th>立面</th><th>已记录缺陷数</th></tr></thead><tbody>' + Object.keys(defects.reduce(function (acc, item) { var key = item.building_id + "|" + item.facade_id; acc[key] = (acc[key] || 0) + 1; return acc; }, {})).map(function (key) { var parts = key.split("|"); var count = defects.filter(function (item) { return item.building_id === parts[0] && item.facade_id === parts[1]; }).length; return '<tr><td>' + escapeHtml(parts[0]) + '</td><td>' + escapeHtml(parts[1]) + '</td><td>' + count + '</td></tr>'; }).join("") + '</tbody></table><h1>五、缺陷汇总表</h1><table><thead><tr><th>序号</th><th>缺陷编号</th><th>楼栋</th><th>立面</th><th>类别</th><th>严重程度</th><th>证据状态</th></tr></thead><tbody>' + defectRows + '</tbody></table></section>' +
-      '<section class="section"><h1>六、逐缺陷证据</h1>' + details + '</section><section class="section"><h1>七、结论与说明</h1><p>当前共记录 ' + defects.length + ' 项缺陷：严重 ' + (counts.serious || 0) + ' 项、一般 ' + (counts.general || 0) + ' 项、轻微 ' + (counts.minor || 0) + ' 项。模型估算、未采集、不可达及待确认数据均不作为正式量测结果。</p><p>本网页为数据预览与复核界面；正式签署、DOCX/PDF 发布和版本存档将由后续报告流程执行。</p><div class="footer"><span>报告 ID：' + escapeHtml(data.report_id) + '</span><span>数据版本：' + escapeHtml(project.source_version) + '</span></div></section>';
-  };
-  function showError(error) { reportRoot.innerHTML = '<section class="section first"><h1>无法加载报告</h1><div class="notice">' + escapeHtml(error.message) + '</div></section>'; }
-  var generated = sessionStorage.getItem("facadefixer-generated-report");
-  if (!generated) { try { generated = localStorage.getItem("facadefixer-generated-report"); } catch (ignore) {} }
-  if (!generated && window.name.indexOf("facadefixer-generated-report:") === 0) generated = window.name.slice("facadefixer-generated-report:".length);
-  if (generated) { try { render(JSON.parse(generated)); } catch (error) { showError(error); } }
-  else { fetch("report-data.example.json").then(function (response) { if (!response.ok) throw new Error("示例数据加载失败"); return response.json(); }).then(render).catch(showError); }
-  document.getElementById("file-input").addEventListener("change", function (event) { var file = event.target.files[0]; if (!file) return; var reader = new FileReader(); reader.onload = function () { try { render(JSON.parse(reader.result)); } catch (error) { showError(error); } }; reader.readAsText(file, "utf-8"); });
+    var project = data.project || {}, defects = data.defects || [], roles = project.responsibility || {};
+    var standards = (project.standards || []).map(function (standard) { return "<li>" + esc(standard) + "</li>"; }).join("") || "<li>待补充</li>";
+    var instruments = (project.instruments || []).map(function (item, index) { return "<tr><td>" + (index + 1) + "</td><td>" + esc(item.name) + "</td><td>" + esc(item.model) + "</td><td>" + esc(item.asset_id) + "</td></tr>"; }).join("") || "<tr><td>1</td><td>待补充</td><td>待补充</td><td>待补充</td></tr>";
+    var counts = defects.reduce(function (out, item) { out[item.category_id] = (out[item.category_id] || 0) + 1; return out; }, {});
+    var categoryRows = Object.keys(counts).map(function (key, index) { return "<tr><td>" + (index + 1) + "</td><td>" + esc(labels[key] || key) + "</td><td>" + counts[key] + "</td></tr>"; }).join("") || "<tr><td>—</td><td>未记录缺陷</td><td>0</td></tr>";
+    reportRoot.innerHTML =
+      '<section class="cover"><h1>' + esc(project.name || "外墙检测鉴定") + '<br>外墙检测鉴定报告</h1><p>基于无人机航拍与 AI 智能识别技术</p><p>检测期次：' + esc(project.period) + '<br>报告版本：' + esc(data.report_version) + '</p></section>' +
+      '<section class="sign-page"><h2>报告签署页</h2><table class="info-table"><tr><th>项目</th><th>内容</th><th>项目</th><th>内容</th></tr><tr><td>委托单位</td><td>' + esc(project.client) + '</td><td>工程名称</td><td>' + esc(project.name) + '</td></tr><tr><td>工程地点</td><td>' + esc(project.location) + '</td><td>项目类型</td><td>外墙外立面检测鉴定</td></tr><tr><td>现场检测</td><td>' + esc(roles.inspector) + '</td><td>报告编写</td><td>' + esc(roles.author) + '</td></tr><tr><td>报告审核</td><td>' + esc(roles.reviewer) + '</td><td>报告批准</td><td>' + esc(roles.approver) + '</td></tr><tr><td>冻结时间</td><td>' + esc(data.frozen_at) + '</td><td>报告编号</td><td>' + esc(data.report_id) + '</td></tr></table></section>' +
+      '<section class="statement"><h2>企业声明</h2><p>1、本报告仅对委托检测范围内容负责；</p><p>2、本报告无编写人、审核人、批准人确认不得作为正式签署文件；</p><p>3、委托方提供资料的真实可靠性由委托方负责；</p><p>4、对报告若有异议，委托方可在收到报告后书面提出。</p></section>' +
+      '<section class="new-section"><h2>目    录</h2><p><strong>一、工程概况</strong></p><p><strong>二、鉴定目的、对象、内容及方法</strong></p><p><strong>三、鉴定依据及材料</strong></p><p><strong>四、主要检测仪器</strong></p><p><strong>五、现场勘验及检测情况</strong></p><p><strong>六、鉴定结论</strong></p><p><strong>七、建议与说明</strong></p></section>' +
+      '<section class="new-section"><h2>一、工程概况</h2><p>' + esc(value(project.overview, sourceText(data))) + '</p><h2>二、鉴定目的、对象、内容及方法</h2><h3>2.1 鉴定目的</h3><p>了解建筑外墙当前质量情况，为复核、维修与后续巡检提供依据。</p><h3>2.2 鉴定对象</h3><p>' + esc(project.name) + ' 外墙外立面。</p><h3>2.3 鉴定内容</h3><p>对已批准范围内的外墙缺陷进行记录、复核及分级。</p><h3>2.4 鉴定方法</h3><p>' + esc(value(project.method, "采用无人机航拍目视检查，结合经批准的缺陷证据进行复核。")) + '</p><h3>2.5 鉴定标准</h3><ol>' + standards + '</ol></section>' +
+      '<section class="new-section"><h2>三、鉴定依据及材料</h2><p>' + sourceText(data) + '</p><h2>四、主要检测仪器</h2><table><tr><th>序号</th><th>仪器名称</th><th>型号</th><th>编号</th></tr>' + instruments + '</table></section>' +
+      '<section class="new-section"><h2>五、现场勘验及检测情况</h2><p>本次共记录缺陷 ' + defects.length + ' 处，详细情况如下。</p><h3>5.1 缺陷类别统计</h3><table><tr><th>类别编号</th><th>缺陷类型</th><th>缺陷数量（处）</th></tr>' + categoryRows + '</table><h3>5.2 建筑物外墙外立面缺陷情况</h3><table><tr><th>序号</th><th>缺陷类型</th><th>楼栋</th><th>立面</th><th>严重程度</th><th>处理建议</th></tr>' + summaryRows(defects) + '</table></section>' + details(defects) +
+      '<section class="new-section"><h2>六、鉴定结论</h2><p>依据冻结检测数据，当前共记录 ' + defects.length + ' 处缺陷。报告中模型估算、未采集、不可达和待确认信息均不作为正式量测结果。</p><h2>七、建议与说明</h2><p>建议按缺陷严重程度安排现场复核与维修，并在正式签署前核验责任信息、证据材料及版本状态。</p></section>';
+  }
+  function readGenerated() {
+    var generated = sessionStorage.getItem("facadefixer-generated-report");
+    if (!generated) { try { generated = localStorage.getItem("facadefixer-generated-report"); } catch (ignore) {} }
+    if (!generated && window.name.indexOf("facadefixer-generated-report:") === 0) generated = window.name.slice("facadefixer-generated-report:".length);
+    return generated;
+  }
+  function showError(error) { reportRoot.innerHTML = '<section class="new-section"><h2>无法加载报告</h2><p>' + esc(error.message) + '</p></section>'; }
+  try { var generated = readGenerated(); if (!generated) throw new Error("请先在报告生成工作台生成网页报告预览。"); render(JSON.parse(generated)); } catch (error) { showError(error); }
   document.getElementById("print-button").addEventListener("click", function () { window.print(); });
 }());
 

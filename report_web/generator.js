@@ -16,17 +16,6 @@
 
   function setPhase(nextPhase) {
     phase = nextPhase;
-    Array.prototype.forEach.call(document.querySelectorAll("[data-phase]"), function (step) {
-      var stepNumber = Number(step.getAttribute("data-phase"));
-      step.classList.toggle("active", stepNumber === phase);
-      step.classList.toggle("complete", stepNumber < phase);
-    });
-    document.getElementById("flow-help").textContent = [
-      "第 1 步：提交报告 JSON、脱敏证据和可选附件。",
-      "第 2 步：检查数据契约、冻结结论、脱敏证据和责任信息。",
-      "第 3 步：已生成网页数据报告，可打开并复核。",
-      "第 4 步：正式导出、签署与审批尚未接入本网页。"
-    ][phase - 1];
   }
 
   function item(ok, text) {

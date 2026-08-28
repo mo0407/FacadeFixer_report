@@ -7,11 +7,9 @@
   <link rel="stylesheet" href="generator.css">
 </head>
 <body>
-  <header class="topbar"><div class="brand"><strong>FacadeFixer</strong><span>专业检测报告生成工作台</span></div><nav><a href="building_76_reference.html">示例报告</a><a href="preview.html">数据预览</a></nav></header>
+  <header class="topbar"><nav><a href="building_76_reference.html">示例报告</a></nav></header>
   <main class="shell">
     <section class="hero"><p class="eyebrow">REPORT DOCUMENT V1</p><h1>从冻结检测资料生成正式报告</h1><p>提交项目数据与已批准证据，系统先完成正式版预检，再生成与 Building_76 示例相同章节结构的网页报告预览。</p></section>
-    <section class="flow" aria-label="生成流程"><div class="active" data-phase="1"><b>1</b><span>提交材料</span></div><div data-phase="2"><b>2</b><span>规则校验</span></div><div data-phase="3"><b>3</b><span>生成预览</span></div><div data-phase="4"><b>4</b><span>导出审批</span></div></section>
-    <p id="flow-help" class="flow-help" aria-live="polite">第 1 步：提交报告 JSON、脱敏证据和可选附件。</p>
     <div class="layout">
       <section class="panel input-panel"><div class="panel-heading"><div><p class="eyebrow">INPUT PACKAGE</p><h2>提交报告材料</h2></div><button id="load-sample" class="secondary" type="button">载入 Building_76 示例</button></div>
         <div class="requirement"><b>正式版本最小材料</b><span>项目与期次 · 冻结专家结论 · 批准脱敏证据 · 责任信息</span></div>
@@ -23,7 +21,7 @@
       </section>
       <aside class="panel check-panel"><p class="eyebrow">FORMAL RELEASE CHECK</p><h2>正式版预检</h2><div id="check-list" class="check-list"><p class="empty">等待提交 ReportDocument。</p></div><div class="summary"><span>报告状态</span><b id="readiness">待提交</b></div><button id="generate" class="primary" type="button" disabled>生成网页报告预览</button><p class="help">生成网页预览不会签署或发布正式报告。DOCX/PDF 转换和签署由后续流程完成。</p></aside>
     </div>
-    <section id="result" class="result" hidden><div><p class="eyebrow">PREVIEW READY</p><h2>网页报告已生成</h2><p id="result-copy"></p></div><div class="result-actions"><a id="open-report" class="primary link-button" href="preview.html">打开数据报告</a><a class="secondary link-button" href="building_76_reference.html">查看示例版式</a></div></section>
+    <section id="result" class="result" hidden><div><p class="eyebrow">PREVIEW READY</p><h2>网页报告已生成</h2><p id="result-copy"></p></div><div class="result-actions"><a id="open-report" class="primary link-button" href="preview.html?v=layout-2">打开数据报告</a><a class="secondary link-button" href="building_76_reference.html">查看示例版式</a></div></section>
     <section class="chapters"><p class="eyebrow">OUTPUT STRUCTURE</p><h2>生成报告的章节</h2><div class="chapter-grid"><div><b>01</b><span>封面、签署页与企业声明</span></div><div><b>02</b><span>工程概况、依据、方法与仪器</span></div><div><b>03</b><span>现场勘验、楼栋/立面索引与缺陷汇总</span></div><div><b>04</b><span>逐缺陷证据、结论、建议与附件区</span></div></div></section>
   </main>
   <script id="sample-data" type="application/json">
