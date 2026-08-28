@@ -4,7 +4,7 @@
 
 ## 打开方式
 
-先生成与 Building_76 参考报告格式、内容一致的页面：
+仓库已附带 `building_76_reference.html`，可离线打开并由工作台中的“查看示例版式”直接访问。若需要从本机参考文件重新构建该示例页：
 
 ```powershell
 python build_reference_preview.py
@@ -16,7 +16,7 @@ python build_reference_preview.py
 python -m http.server 8090
 ```
 
-`index.html` 默认打开 `generator.html`：用户在此提交 `ReportDocument v1`、批准脱敏证据与可选依据附件，完成预检后生成网页预览。页面会阻止未冻结专家结论、未批准脱敏证据、责任信息缺失和缺少证据文件的正式预览。`building_76_reference.html` 保留参考报告的 90 个逐缺陷页、目录、声明、汇总与四图证据布局；动态 `ReportDocument v1` 预览位于 `preview.html`。
+`index.html` 默认打开 `generator.html`：用户在此提交 `ReportDocument v1`、批准脱敏证据与可选依据附件，完成预检后生成网页预览。页面会阻止未冻结专家结论、未批准脱敏证据、责任信息缺失和缺少证据文件的正式预览；“载入 Building_76 示例”会同时装载内置的批准脱敏示例证据，因此可直接生成预览。`building_76_reference.html` 保留参考报告的 90 个逐缺陷页、目录、声明、汇总与四图证据布局；动态 `ReportDocument v1` 预览位于 `preview.html`。
 
 ## 设计约束
 

@@ -8,6 +8,8 @@ const generatorApp = fs.readFileSync(path.join(root, "generator.js"), "utf8");
 const app = fs.readFileSync(path.join(root, "app.js"), "utf8");
 const data = JSON.parse(fs.readFileSync(path.join(root, "report-data.example.json"), "utf8"));
 if (!html.includes("generator.html") || !generator.includes("report-json") || !generator.includes("evidence-files") || !generatorApp.includes("facadefixer-generated-report") || !preview.includes("app.js") || !app.includes("report-data.example.json")) throw new Error("entry point is incomplete");
+if (!generatorApp.includes("sampleEvidenceLoaded") || !generatorApp.includes("已载入内置的已批准脱敏示例证据")) throw new Error("sample data must satisfy the evidence precheck");
+if (!generator.includes("building_76_reference.html")) throw new Error("reference report link is missing");
 if (data.schema_version !== "report-document/v1") throw new Error("example must use ReportDocument v1");
 ["measured", "model_estimate", "inaccessible"].forEach(function (state) { if (!app.includes(state)) throw new Error("missing status renderer: " + state); });
 if (!app.includes("window.print")) throw new Error("A4 print action missing");

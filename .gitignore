@@ -1,5 +1,4 @@
 # Generated report output and source evidence must stay local.
-building_76_reference.html
 report_web_output/
 *.zip
 *.pdf
