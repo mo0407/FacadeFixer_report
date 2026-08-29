@@ -1,5 +1,5 @@
-Warning: truncated output (original token count: 5746)
-Total output lines: 391
+Warning: truncated output (original token count: 5905)
+Total output lines: 401
 
 (function () {
   "use strict";
@@ -50,7 +50,7 @@ Total output lines: 391
   function renderChecks() {
     if (!report) {
       checks.innerHTML = '<p class="empty">等待提交 ReportDocument。</p>';
-     …4746 tokens truncated… = this.files[0];
+     …4905 tokens truncated… = this.files[0];
     if (!file) return;
     var reader = new FileReader();
     reader.onload = function () { load(reader.result); };
