@@ -19,7 +19,7 @@
         <label class="upload required"><span class="file-icon">04</span><span><b>缺陷位置图文件夹（single_defect_maps）</b><small>必填 · 与 JSON 的 map_name 对应</small></span><input id="map-files" type="file" accept="image/*" webkitdirectory directory multiple></label>
         <label class="upload"><span class="file-icon">05</span><span><b>ReportDocument JSON / 项目附件</b><small>可选 · 已有版本化报告数据或标准、图纸、校准资料</small></span><input id="report-json" type="file" accept="application/json"></label><input id="attachment-files" type="file" multiple hidden>
         <div id="file-list" class="file-list" aria-live="polite">尚未选择文件。</div>
-        <details><summary>查看字段和状态规则</summary><ul><li>报告仅接受 <code>frozen</code> 的专家结论；草稿结论不能进入正式版。</li><li>图片证据须标记 <code>approved_redaction=true</code>。</li><li>模型估算、未采集、不可达、待确认不会计入正式量测统计。</li><li>点击生成前，请在本机启动 <code>python ai_service.py</code>；网页只向本机服务发送缺陷类别、识别描述和量化尺寸，不会上传图片、坐标或拍摄时间。</li></ul></details>
+        <details><summary>查看字段和状态规则</summary><ul><li>报告仅接受 <code>frozen</code> 的专家结论；草稿结论不能进入正式版。</li><li>图片证据须标记 <code>approved_redaction=true</code>。</li><li>模型估算、未采集、不可达、待确认不会计入正式量测统计。</li><li>生成时会调用受控的云端书生分析服务；仅发送缺陷类别、识别描述和量化尺寸，不会上传图片、坐标或拍摄时间。</li></ul></details>
       </section>
       <aside class="panel check-panel"><p class="eyebrow">FORMAL RELEASE CHECK</p><h2>正式版预检</h2><div id="check-list" class="check-list"><p class="empty">等待提交 ReportDocument。</p></div><div class="summary"><span>报告状态</span><b id="readiness">待提交</b></div><button id="generate" class="primary" type="button" disabled>生成网页报告预览</button><p id="generation-progress" class="help" hidden aria-live="polite"></p><p class="help">生成网页预览不会签署或发布正式报告。DOCX/PDF 转换和签署由后续流程完成。</p></aside>
     </div>
