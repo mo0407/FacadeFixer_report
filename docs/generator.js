@@ -18,7 +18,7 @@
   var sampleEvidenceLoaded = false;
   var evidenceImages = [];
   var phase = 1;
-  var AI_ENDPOINT = "http://127.0.0.1:8092/api/report-analysis";
+  var AI_ENDPOINT = "https://facadefixer-report-analysis.moshaojie.workers.dev/api/report-analysis";
   var AI_BATCH_SIZE = 12;
 
   function setPhase(nextPhase) {
