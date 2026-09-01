@@ -86,6 +86,13 @@
   }
   try { setWordMode(sessionStorage.getItem("facadefixer-word-mode") === "1"); } catch (ignore) { setWordMode(false); }
   wordToggle.addEventListener("click", function () { setWordMode(!document.body.classList.contains("word-mode")); });
-  document.getElementById("print-button").addEventListener("click", function () { window.focus(); window.print(); });
+  // 打印始终采用 Word 分页版；打印结束后恢复用户原先的浏览方式。
+  document.getElementById("print-button").addEventListener("click", function () {
+    var wasWordMode = document.body.classList.contains("word-mode");
+    if (!wasWordMode) setWordMode(true);
+    window.focus();
+    window.print();
+    if (!wasWordMode) setTimeout(function () { setWordMode(false); }, 0);
+  });
 }());
 
